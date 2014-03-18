@@ -4,7 +4,7 @@
  */
 package PotyogosAmoba.bead;
 
-import static bead.BeadGameLogic.COLS;
+import static PotyogosAmoba.bead.BeadGameLogic.COLS;
 import javax.swing.ImageIcon;
 
 /**
