@@ -6,7 +6,9 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("That's all folks!");
+		System.out.println("Starting GUI");		
+		GameCollectionGUI gameCollectionGUI = new GameCollectionGUI();
+		
 		try {
 			Scanner sc = new Scanner(new BufferedReader(new FileReader("petofi.vers")));
 			while(sc.hasNext())
