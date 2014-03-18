@@ -6,7 +6,7 @@ package dodgemgamee.logic;
 
 /**
  *
- * @author Ă�kos
+ * @author Ákos
  */
 class Pair {
     private int x;

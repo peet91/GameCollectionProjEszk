@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Ă�kos
+ * @author Ákos
  */
 public class GameLogic implements Serializable{
 
