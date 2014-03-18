@@ -1,15 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package PotyogosAmoba.bead;
+package PotyogosAmoba;
 
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Buci
- */
 public class Player {
 
     private int number;

@@ -1,10 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package PotyogosAmoba.bead;
 
-import static PotyogosAmoba.bead.BeadGameLogic.COLS;
+package PotyogosAmoba;
+
+import static PotyogosAmoba.BeadGameLogic.COLS;
+
 import javax.swing.ImageIcon;
 
 /**

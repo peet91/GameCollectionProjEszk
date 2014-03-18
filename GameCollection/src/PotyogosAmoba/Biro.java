@@ -1,16 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package PotyogosAmoba.bead;
 
-import static PotyogosAmoba.bead.BeadGameLogic.COLS;
+package PotyogosAmoba;
+
+import static PotyogosAmoba.BeadGameLogic.COLS;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Zoltán
- */
 public class Biro {
 
     void win(int x, int y, ImageIcon[][] szinek, BeadGameFrame gui, int ROWS, Player aktPlayer) {

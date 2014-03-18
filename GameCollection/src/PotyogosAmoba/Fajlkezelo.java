@@ -1,8 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package PotyogosAmoba.bead;
+
+package PotyogosAmoba;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,10 +8,6 @@ import java.io.PrintStream;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Buci
- */
 public class Fajlkezelo {
 
     private String beFajlnev;
