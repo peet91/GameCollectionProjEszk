@@ -1,5 +1,7 @@
 package FourGame;
 
+import FourGame.GUI.FourGameGUI;
+
 
 public class FourGame {
     

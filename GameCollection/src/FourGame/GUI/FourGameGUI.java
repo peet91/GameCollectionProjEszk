@@ -19,6 +19,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import FourGame.Logic.FourGameLogic;
+
 public class FourGameGUI extends JFrame {
     private JPanel form;
     private JPanel scoreBoard;
