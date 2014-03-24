@@ -1,0 +1,246 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package torpedo;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.util.Random;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author kacsa
+ */
+public class MyShips extends JFrame{
+    private TorpeDoFrame gui;
+    int COLS;
+    int ROWS;
+    int[][] statusME;
+
+    public MyShips(int cols, int rows, int[][] statusME, TorpeDoFrame gui) {
+        this.gui = gui;
+        this.COLS = cols;
+        this.ROWS = rows;
+        this.statusME = statusME;
+    }
+    
+    
+    //KETTES HAJÓ   
+    public void placeNo2Ship(int i, int j) {
+        statusME[i][j] = 1;
+        //gui.setColorOfButtonME(i, j, Color.LIGHT_GRAY); //lereak egy részletet
+
+        //tisztítás
+        for (int m = 0; m < ROWS; ++m) {
+            for (int n = 0; n < COLS; ++n) {
+                gui.setButtonEnabledME(m, n, false);
+            }
+        }
+
+        //ide rakhatsz hajót
+        if (i + 1 < COLS) {
+            gui.setButtonEnabledME(i + 1, j, true);
+        }
+        if (j + 1 < ROWS) {
+            gui.setButtonEnabledME(i, j + 1, true);
+        }
+        if (i - 1 >= 0) {
+            gui.setButtonEnabledME(i - 1, j, true);
+        }
+        if (j - 1 >= 0) {
+            gui.setButtonEnabledME(i, j - 1, true);
+        }
+
+        //ahova már raktál oda nem rakhatsz
+        for (int m = 0; m < ROWS; ++m) {
+            for (int n = 0; n < COLS; ++n) {
+                if (statusME[m][n] == 1) {
+                    gui.setButtonEnabledME(m, n, false);
+                }
+            }
+        }
+    }//kettes vége
+    
+    
+    //HÁRMAS HAJÓ
+    public void placeNo3Ship(int i, int j, int c) {
+        statusME[i][j] = 1;//lereak egy részletet
+        // gui.setColorOfButtonME(i, j, Color.GRAY); 
+
+        //tisztítás
+        for (int m = 0; m < ROWS; ++m) {
+            for (int n = 0; n < COLS; ++n) {
+                gui.setButtonEnabledME(m, n, false);
+            }
+        }
+
+        //hajó első darabja
+        if (c == 2) {
+            if (i + 1 < COLS) {
+                gui.setButtonEnabledME(i + 1, j, true);
+            }
+            if (j + 1 < ROWS) {
+                gui.setButtonEnabledME(i, j + 1, true);
+            }
+            if (i - 1 >= 0) {
+                gui.setButtonEnabledME(i - 1, j, true);
+            }
+            if (j - 1 >= 0) {
+                gui.setButtonEnabledME(i, j - 1, true);
+            }
+        } else if (c > 2) {
+            //hajó többi darabja     
+            if (i - 1 >= 0 && statusME[i - 1][j] == 1 && i + 1 < ROWS) {//ha felette van az előző
+                gui.setButtonEnabledME(i + 1, j, true);
+
+            }
+            if (i - 1 >= 0 && statusME[i - 1][j] == 1 && i - 2 >= 0) {
+                gui.setButtonEnabledME(i - 2, j, true);
+            }
+
+            if (i + 1 < ROWS && statusME[i + 1][j] == 1 && i + 2 < ROWS) {//ha alatta van az előző
+                gui.setButtonEnabledME(i + 2, j, true);
+            }
+            if (i + 1 < ROWS && statusME[i + 1][j] == 1 && i - 1 >= 0) {
+                gui.setButtonEnabledME(i - 1, j, true);
+            }
+
+            if (j - 1 >= 0 && statusME[i][j - 1] == 1 && j + 1 < COLS) {//ha balra van az előző
+                gui.setButtonEnabledME(i, j + 1, true);
+
+            }
+            if (j - 1 >= 0 && statusME[i][j - 1] == 1 && j - 2 >= 0) {
+                gui.setButtonEnabledME(i, j - 2, true);
+            }
+
+            if (j + 1 < COLS && statusME[i][j + 1] == 1 && j + 2 < COLS) {//ha jobbra van az előző
+                gui.setButtonEnabledME(i, j + 2, true);
+
+            }
+            if (j + 1 < COLS && statusME[i][j + 1] == 1 && j - 1 >= 0) {
+                gui.setButtonEnabledME(i, j - 1, true);
+            }
+
+
+
+        }
+
+        //ahova már raktál oda nem rakhatsz
+        for (int m = 0; m < ROWS; ++m) {
+            for (int n = 0; n < COLS; ++n) {
+                if (statusME[m][n] == 1) {
+                    gui.setButtonEnabledME(m, n, false);
+                }
+            }
+        }
+    }//hármas vége
+    
+    //NÉGYES HAJÓ
+    public void placeNo4Ship(int i, int j, int c) {
+        statusME[i][j] = 1;
+        //   gui.setColorOfButtonME(i, j, Color.DARK_GRAY); //lreak egy részletet
+
+        //tisztítás
+        for (int m = 0; m < ROWS; ++m) {
+            for (int n = 0; n < COLS; ++n) {
+                gui.setButtonEnabledME(m, n, false);
+            }
+        }
+
+        //hajó első darabja
+        if (c == 5) {
+            if (i + 1 < COLS) {
+                gui.setButtonEnabledME(i + 1, j, true);
+            }
+            if (j + 1 < ROWS) {
+                gui.setButtonEnabledME(i, j + 1, true);
+            }
+            if (i - 1 >= 0) {
+                gui.setButtonEnabledME(i - 1, j, true);
+            }
+            if (j - 1 >= 0) {
+                gui.setButtonEnabledME(i, j - 1, true);
+            }
+        } else if (c == 6) {
+            //hajó többi darabja   
+
+            if (i - 1 >= 0 && statusME[i - 1][j] == 1 && i + 1 < ROWS) {//ha felette van az előző
+                gui.setButtonEnabledME(i + 1, j, true);
+
+            }
+            if (i - 1 >= 0 && statusME[i - 1][j] == 1 && i - 2 >= 0) {
+                gui.setButtonEnabledME(i - 2, j, true);
+            }
+
+            if (i + 1 < ROWS && statusME[i + 1][j] == 1 && i + 2 < ROWS) {//ha alatta van az előző
+                gui.setButtonEnabledME(i + 2, j, true);
+            }
+            if (i + 1 < ROWS && statusME[i + 1][j] == 1 && i - 1 >= 0) {
+                gui.setButtonEnabledME(i - 1, j, true);
+            }
+
+            if (j - 1 >= 0 && statusME[i][j - 1] == 1 && j + 1 < COLS) {//ha balra van az előző
+                gui.setButtonEnabledME(i, j + 1, true);
+
+            }
+            if (j - 1 >= 0 && statusME[i][j - 1] == 1 && j - 2 >= 0) {
+                gui.setButtonEnabledME(i, j - 2, true);
+            }
+
+            if (j + 1 < COLS && statusME[i][j + 1] == 1 && j + 2 < COLS) {//ha jobbra van az előző
+                gui.setButtonEnabledME(i, j + 2, true);
+
+            }
+            if (j + 1 < COLS && statusME[i][j + 1] == 1 && j - 1 >= 0) {
+                gui.setButtonEnabledME(i, j - 1, true);
+            }
+        } else if (c > 6) {
+            //hajó utolsó darabja    
+
+            if (i - 1 >= 0 && statusME[i - 1][j] == 1 && i + 1 < ROWS) {//ha felette van az előző
+                gui.setButtonEnabledME(i + 1, j, true);
+
+            }
+            if (i - 1 >= 0 && statusME[i - 1][j] == 1 && i - 3 >= 0) {
+                gui.setButtonEnabledME(i - 3, j, true);
+            }
+
+            if (i + 1 < ROWS && statusME[i + 1][j] == 1 && i + 3 < ROWS) {//ha alatta van az előző
+                gui.setButtonEnabledME(i + 3, j, true);
+            }
+            if (i + 1 < ROWS && statusME[i + 1][j] == 1 && i - 1 >= 0) {
+                gui.setButtonEnabledME(i - 1, j, true);
+            }
+
+            if (j - 1 >= 0 && statusME[i][j - 1] == 1 && j + 1 < COLS) {//ha balra van az előző
+                gui.setButtonEnabledME(i, j + 1, true);
+
+            }
+            if (j - 1 >= 0 && statusME[i][j - 1] == 1 && j - 3 >= 0) {
+                gui.setButtonEnabledME(i, j - 3, true);
+            }
+
+            if (j + 1 < COLS && statusME[i][j + 1] == 1 && j + 3 < COLS) {//ha jobbra van az előző
+                gui.setButtonEnabledME(i, j + 3, true);
+
+            }
+            if (j + 1 < COLS && statusME[i][j + 1] == 1 && j - 1 >= 0) {
+                gui.setButtonEnabledME(i, j - 1, true);
+
+            }
+
+        }
+
+        //ahova már raktál oda nem rakhatsz
+        for (int m = 0; m < ROWS; ++m) {
+            for (int n = 0; n < COLS; ++n) {
+                if (statusME[m][n] == 1) {
+                    gui.setButtonEnabledME(m, n, false);
+                }
+            }
+        }
+    }//négyes hajó vége
+}
