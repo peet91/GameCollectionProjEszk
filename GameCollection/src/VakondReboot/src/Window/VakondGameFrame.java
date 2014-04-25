@@ -24,10 +24,12 @@ public class VakondGameFrame extends JFrame{
 	public final int WINDOW_WIDTH = 800;
 	public final int WINDOW_HEIGHT = 600;
 	private GrassPanel panel;
+	private final String TITLE = "Vakond Killer 2000 Ultimate";
 
 	public VakondGameFrame() {
 		
 		//setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setTitle(TITLE);
 		setSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
 		setLayout(new BorderLayout());
 		panel = new GrassPanel();
