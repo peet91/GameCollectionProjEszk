@@ -1,4 +1,4 @@
-package bead2;
+package Reversi;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -26,7 +26,7 @@ public class Grafika extends JFrame {
         //setSize(Logika.getROWS() * meret, Logika.getCOLS() * meret);
         setLocationRelativeTo(null);
         setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+       // setDefaultCloseOperation(EXIT_ON_CLOSE);
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
         JMenu menu = new JMenu("File");

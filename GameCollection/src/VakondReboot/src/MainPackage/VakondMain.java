@@ -4,22 +4,21 @@
  * and open the template in the editor.
  */
 
-package Vakond.hitthevakond;
+package VakondReboot.src.MainPackage;
 
-import Vakond.Window.GameFrame;
-
+import VakondReboot.src.Window.VakondGameFrame;
 /**
  *
  * @author R
  */
-public class HitTheVakond {
+public class VakondMain {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+	public static void main(String[] args){
         // TODO code application logic here
-        GameFrame g = new GameFrame();
+        VakondGameFrame g = new VakondGameFrame();
     }
     
 }

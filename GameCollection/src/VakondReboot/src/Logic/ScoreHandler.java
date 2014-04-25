@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Vakond.Logic;
+package VakondReboot.src.Logic;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 
 
-class BeadGameFrame extends JFrame {
+public class BeadGameFrame extends JFrame {
 
     private JButton[][] buttons;
     private BeadGameLogic logic;
@@ -37,7 +37,7 @@ class BeadGameFrame extends JFrame {
         setMinimumSize(new Dimension(1000, 800));
         setLocation(new Point(150, 100));
         setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         JMenuBar menuBar = new JMenuBar();

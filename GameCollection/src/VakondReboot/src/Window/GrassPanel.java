@@ -1,4 +1,4 @@
-package Vakond.Window;
+package VakondReboot.src.Window;
 
 import java.awt.BorderLayout;
 import java.awt.Graphics;
@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import Vakond.Logic.Game;
+import VakondReboot.src.Logic.Game;
 
 @SuppressWarnings("serial")
 public class GrassPanel extends JPanel implements MouseListener {
@@ -50,16 +50,16 @@ public class GrassPanel extends JPanel implements MouseListener {
 	}
 
 	private void loadImages() {
-		ImageIcon ic = new ImageIcon("mole.png");
+		ImageIcon ic = new ImageIcon("images/Vakond/mole.png");
 		images = new TreeMap<>();
 		images.put("MOLE", ic);
-		ic = new ImageIcon("hof.png");
+		ic = new ImageIcon("images/Vakond/hof.png");
 		images.put("HOF", ic);
-		ic = new ImageIcon("bloody_mole.png");
+		ic = new ImageIcon("images/Vakond/bloody_mole.png");
 		images.put("MOLE_BLOOD", ic);
-		ic = new ImageIcon("hatter.jpg");
+		ic = new ImageIcon("images/Vakond/hatter.jpg");
 		images.put("BCKGRND", ic);
-		ic = new ImageIcon("crosshair_small.png");
+		ic = new ImageIcon("images/Vakond/crosshair_small.png");
 		images.put("CHR", ic);
 	}
 
@@ -71,13 +71,13 @@ public class GrassPanel extends JPanel implements MouseListener {
 		g2d.drawImage(images.get("BCKGRND").getImage(), 0, 50, null);
 		switch (game.getState()) {
 		case RUN:
-			g2d.drawImage(images.get("MOLE").getImage(), game.getMole()
-					.getPos().getX(), game.getMole().getPos().getY(), null);
+			g2d.drawImage(images.get("MOLE").getImage(), 
+					game.getMole().getPos().getX(), game.getMole().getPos().getY(), null);
 			scoreLabel.setText("Score: " + game.getPlayerScore() + " pts");
 			break;
 		case HIT:
-			g2d.drawImage(images.get("MOLE_BLOOD").getImage(), game.getMole()
-					.getPos().getX(), game.getMole().getPos().getY(), null);
+			g2d.drawImage(images.get("MOLE_BLOOD").getImage(), 
+					game.getMole().getPos().getX(), game.getMole().getPos().getY(), null);
 			scoreLabel.setText("Score: " + game.getPlayerScore() + " pts");
 			break;
 		case END:

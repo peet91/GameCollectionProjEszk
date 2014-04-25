@@ -37,9 +37,9 @@ import dodgemgamee.logic.Way;
 
 /**
  *
- * @author Ă�kos
+ * @author Ä‚ďż˝kos
  */
-public final class GameFrame extends JFrame {
+public final class DodgemGameFrame extends JFrame {
 
     GameLogic logic;
     private int size;
@@ -102,12 +102,12 @@ public final class GameFrame extends JFrame {
             newGame(30);
         }
     };
-    private Action saveGameAction = new AbstractAction("MentĂ©s") {
+    private Action saveGameAction = new AbstractAction("MentÄ‚Â©s") {
         @Override
         public void actionPerformed(ActionEvent e) {
             JFileChooser chooser = new JFileChooser();
 
-            int button = chooser.showSaveDialog(GameFrame.this);
+            int button = chooser.showSaveDialog(DodgemGameFrame.this);
 
             if (button == JFileChooser.APPROVE_OPTION) {
                 File saveFile = chooser.getSelectedFile();
@@ -117,17 +117,17 @@ public final class GameFrame extends JFrame {
                     ObjectOutputStream os = new ObjectOutputStream(fo);
                     os.writeObject(logic);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(GameFrame.this, "Nem sikerĂĽlt");
+                    JOptionPane.showMessageDialog(DodgemGameFrame.this, "Nem sikerÄ‚Ä˝lt");
                 }
             }
 
         }
     };
-    private Action loadGameAction = new AbstractAction("BetĂ¶ltĂ©s") {
+    private Action loadGameAction = new AbstractAction("BetÄ‚Â¶ltÄ‚Â©s") {
         @Override
         public void actionPerformed(ActionEvent e) {
             JFileChooser chooser = new JFileChooser();
-            int button = chooser.showOpenDialog(GameFrame.this);
+            int button = chooser.showOpenDialog(DodgemGameFrame.this);
             if (button == JFileChooser.APPROVE_OPTION) {
                 File saveFile = chooser.getSelectedFile();
 
@@ -167,25 +167,25 @@ public final class GameFrame extends JFrame {
                     updatePanel();
                     
                 } catch (IOException | ClassNotFoundException ex) {
-                    JOptionPane.showMessageDialog(GameFrame.this, "Nem sikerĂĽlt");
+                    JOptionPane.showMessageDialog(DodgemGameFrame.this, "Nem sikerÄ‚Ä˝lt");
                 }
             }
 
         }
     };
-    private Action descriptionAction = new AbstractAction("LeĂ­rĂˇs") {
+    private Action descriptionAction = new AbstractAction("LeÄ‚Â­rÄ‚Ë‡s") {
         @Override
         public void actionPerformed(ActionEvent e) {
-            JOptionPane.showMessageDialog(rootPane, "A Dodgem jĂˇtĂ©kban egy nĂ—n-es jĂˇtĂ©ktĂˇblĂˇn a jĂˇtĂ©kosok n-1 dodgemmel rendelkeznek," + "\n" + "melyek kezdetben az ĂˇbrĂˇn lĂˇthatĂł mĂłdon helyezkednek el. A bal oldali jĂˇtĂ©kos fel, le, illetve jobbra," + "\n" + "mĂ­g az alsĂł jĂˇtĂ©kos fel, balra Ă©s jobbra mozgathatja a bĂˇbuit "
-                    + "ĂĽres mezĹ‘re," + " \n" + "valamint mindketten lelĂ©phetnek a tĂˇblĂˇrĂłl, ha elĂ©rtĂ©k a tĂˇbla mĂˇsik vĂ©gĂ©t."
-                    + "\n" + "\n" + "A jĂˇtĂ©kosok felvĂˇltva lĂ©pnek, Ă©s az veszĂ­t, aki nem tud lĂ©pni egyetlen bĂˇbujĂˇval sem,"
-                    + "\n" + "mert az ellenfĂ©l blokkolja minden, a jĂˇtĂ©ktĂˇblĂˇn maradt bĂˇbujĂˇt"
-                    + "\n" + "Az Enterrel elĹ‘re, mĂ­g az 1-essel balra a 2-essel jobbra lĂ©phetĂĽnk" + "\n\n" + "Made by Akos Komuves", "LeĂ­rĂˇs", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "A Dodgem jÄ‚Ë‡tÄ‚Â©kban egy nÄ‚â€”n-es jÄ‚Ë‡tÄ‚Â©ktÄ‚Ë‡blÄ‚Ë‡n a jÄ‚Ë‡tÄ‚Â©kosok n-1 dodgemmel rendelkeznek," + "\n" + "melyek kezdetben az Ä‚Ë‡brÄ‚Ë‡n lÄ‚Ë‡thatÄ‚Ĺ‚ mÄ‚Ĺ‚don helyezkednek el. A bal oldali jÄ‚Ë‡tÄ‚Â©kos fel, le, illetve jobbra," + "\n" + "mÄ‚Â­g az alsÄ‚Ĺ‚ jÄ‚Ë‡tÄ‚Â©kos fel, balra Ä‚Â©s jobbra mozgathatja a bÄ‚Ë‡buit "
+                    + "Ä‚Ä˝res mezÄąâ€�re," + " \n" + "valamint mindketten lelÄ‚Â©phetnek a tÄ‚Ë‡blÄ‚Ë‡rÄ‚Ĺ‚l, ha elÄ‚Â©rtÄ‚Â©k a tÄ‚Ë‡bla mÄ‚Ë‡sik vÄ‚Â©gÄ‚Â©t."
+                    + "\n" + "\n" + "A jÄ‚Ë‡tÄ‚Â©kosok felvÄ‚Ë‡ltva lÄ‚Â©pnek, Ä‚Â©s az veszÄ‚Â­t, aki nem tud lÄ‚Â©pni egyetlen bÄ‚Ë‡bujÄ‚Ë‡val sem,"
+                    + "\n" + "mert az ellenfÄ‚Â©l blokkolja minden, a jÄ‚Ë‡tÄ‚Â©ktÄ‚Ë‡blÄ‚Ë‡n maradt bÄ‚Ë‡bujÄ‚Ë‡t"
+                    + "\n" + "Az Enterrel elÄąâ€�re, mÄ‚Â­g az 1-essel balra a 2-essel jobbra lÄ‚Â©phetÄ‚Ä˝nk" + "\n\n" + "Made by Akos Komuves", "LeÄ‚Â­rÄ‚Ë‡s", JOptionPane.INFORMATION_MESSAGE);
 
         }
     };
 
-    public GameFrame(int size) throws IOException {
+    public DodgemGameFrame(int size) throws IOException {
         super("Dodgem Game");
         this.size = size;
         red = ImageIO.read(new File("red.jpg"));
@@ -194,7 +194,7 @@ public final class GameFrame extends JFrame {
         setSize(750, 900);
         setLayout(new BorderLayout());
         setJMenuBar(createMenu());
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+       //setDefaultCloseOperation(EXIT_ON_CLOSE);
         newGame(10);
         JPanel SouthPanel = new JPanel();
         txt.setEditable(false);
@@ -265,9 +265,9 @@ public final class GameFrame extends JFrame {
             }
         }
         if (logic.getRedTheNext() == true) {
-            txt.setText("Piros kĂ¶vetkezik");
+            txt.setText("Piros kÄ‚Â¶vetkezik");
         } else {
-            txt.setText("KĂ©k kĂ¶vetkezik");
+            txt.setText("KÄ‚Â©k kÄ‚Â¶vetkezik");
         }
         panel.revalidate();
         panel.repaint();
@@ -276,9 +276,9 @@ public final class GameFrame extends JFrame {
     public JMenuBar createMenu() {
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu mainMenu = new JMenu("LehetĹ‘sĂ©gek");
+        JMenu mainMenu = new JMenu("LehetÄąâ€�sÄ‚Â©gek");
 
-        JMenu newGameMenu = new JMenu("Ăšj JĂˇtĂ©k");
+        JMenu newGameMenu = new JMenu("Ä‚Ĺˇj JÄ‚Ë‡tÄ‚Â©k");
         JMenuItem newGame5 = new JMenuItem(newGameAction10);
         JMenuItem newGame10 = new JMenuItem(newGameAction20);
         JMenuItem newGame15 = new JMenuItem(newGameAction30);

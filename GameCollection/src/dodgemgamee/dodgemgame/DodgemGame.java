@@ -4,7 +4,7 @@
  */
 package dodgemgamee.dodgemgame;
 
-import dodgemgamee.gui.GameFrame;
+//import dodgemgamee.gui.GameFrame;
 import java.io.IOException;
 
 /**
@@ -28,7 +28,7 @@ public class DodgemGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        GameFrame gf = new GameFrame(10);
-        gf.setVisible(true);
+        /*GameFrame gf = new GameFrame(10);
+        gf.setVisible(true);*/
     }
 }

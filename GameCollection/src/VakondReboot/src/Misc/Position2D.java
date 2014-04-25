@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Vakond.Misc;
+package VakondReboot.src.Misc;
 
 /**
  *

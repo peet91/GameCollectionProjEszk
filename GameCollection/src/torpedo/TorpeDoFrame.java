@@ -41,7 +41,7 @@ public class TorpeDoFrame extends JFrame {
         setTitle("TorpeDo");
         setLocationRelativeTo(null);
         setSize(new Dimension(610, 350)); //width, hight
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
 
         //Menü

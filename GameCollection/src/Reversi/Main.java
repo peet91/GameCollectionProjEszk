@@ -1,4 +1,4 @@
-package bead2;
+package Reversi;
 
 public class Main {
 

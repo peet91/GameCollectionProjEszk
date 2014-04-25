@@ -51,7 +51,7 @@ public class FourGameGUI extends JFrame {
         add(new JButton(saveGameAction), BorderLayout.WEST);
         add(new JButton(loadGameAction), BorderLayout.EAST);
         
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         addButtons();
         paintButtons();

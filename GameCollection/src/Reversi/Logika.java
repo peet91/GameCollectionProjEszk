@@ -1,4 +1,4 @@
-package bead2;
+package Reversi;
 
 import java.awt.Color;
 import java.io.File;
