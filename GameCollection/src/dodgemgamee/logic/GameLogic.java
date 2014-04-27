@@ -8,11 +8,15 @@ import java.io.Serializable;
 
 /**
  *
- * @author Ákos
+ * @author Ă�kos
  */
 public class GameLogic implements Serializable{
 
-    public int size;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3960041898439633226L;
+	public int size;
     private int map[][];
     private boolean redTheNext = true;
 

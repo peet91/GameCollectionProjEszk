@@ -102,7 +102,7 @@ public final class DodgemGameFrame extends JFrame {
             newGame(30);
         }
     };
-    private Action saveGameAction = new AbstractAction("MentÄ‚Â©s") {
+    private Action saveGameAction = new AbstractAction("Save") {
         @Override
         public void actionPerformed(ActionEvent e) {
             JFileChooser chooser = new JFileChooser();
@@ -117,13 +117,13 @@ public final class DodgemGameFrame extends JFrame {
                     ObjectOutputStream os = new ObjectOutputStream(fo);
                     os.writeObject(logic);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(DodgemGameFrame.this, "Nem sikerÄ‚Ä˝lt");
+                    JOptionPane.showMessageDialog(DodgemGameFrame.this, "Fail ");
                 }
             }
 
         }
     };
-    private Action loadGameAction = new AbstractAction("BetÄ‚Â¶ltÄ‚Â©s") {
+    private Action loadGameAction = new AbstractAction("Load") {
         @Override
         public void actionPerformed(ActionEvent e) {
             JFileChooser chooser = new JFileChooser();
@@ -167,20 +167,20 @@ public final class DodgemGameFrame extends JFrame {
                     updatePanel();
                     
                 } catch (IOException | ClassNotFoundException ex) {
-                    JOptionPane.showMessageDialog(DodgemGameFrame.this, "Nem sikerÄ‚Ä˝lt");
+                    JOptionPane.showMessageDialog(DodgemGameFrame.this, "Fail");
                 }
             }
 
         }
     };
-    private Action descriptionAction = new AbstractAction("LeÄ‚Â­rÄ‚Ë‡s") {
+    private Action descriptionAction = new AbstractAction("Description") {
         @Override
         public void actionPerformed(ActionEvent e) {
-            JOptionPane.showMessageDialog(rootPane, "A Dodgem jÄ‚Ë‡tÄ‚Â©kban egy nÄ‚â€”n-es jÄ‚Ë‡tÄ‚Â©ktÄ‚Ë‡blÄ‚Ë‡n a jÄ‚Ë‡tÄ‚Â©kosok n-1 dodgemmel rendelkeznek," + "\n" + "melyek kezdetben az Ä‚Ë‡brÄ‚Ë‡n lÄ‚Ë‡thatÄ‚Ĺ‚ mÄ‚Ĺ‚don helyezkednek el. A bal oldali jÄ‚Ë‡tÄ‚Â©kos fel, le, illetve jobbra," + "\n" + "mÄ‚Â­g az alsÄ‚Ĺ‚ jÄ‚Ë‡tÄ‚Â©kos fel, balra Ä‚Â©s jobbra mozgathatja a bÄ‚Ë‡buit "
-                    + "Ä‚Ä˝res mezÄąâ€�re," + " \n" + "valamint mindketten lelÄ‚Â©phetnek a tÄ‚Ë‡blÄ‚Ë‡rÄ‚Ĺ‚l, ha elÄ‚Â©rtÄ‚Â©k a tÄ‚Ë‡bla mÄ‚Ë‡sik vÄ‚Â©gÄ‚Â©t."
-                    + "\n" + "\n" + "A jÄ‚Ë‡tÄ‚Â©kosok felvÄ‚Ë‡ltva lÄ‚Â©pnek, Ä‚Â©s az veszÄ‚Â­t, aki nem tud lÄ‚Â©pni egyetlen bÄ‚Ë‡bujÄ‚Ë‡val sem,"
-                    + "\n" + "mert az ellenfÄ‚Â©l blokkolja minden, a jÄ‚Ë‡tÄ‚Â©ktÄ‚Ë‡blÄ‚Ë‡n maradt bÄ‚Ë‡bujÄ‚Ë‡t"
-                    + "\n" + "Az Enterrel elÄąâ€�re, mÄ‚Â­g az 1-essel balra a 2-essel jobbra lÄ‚Â©phetÄ‚Ä˝nk" + "\n\n" + "Made by Akos Komuves", "LeÄ‚Â­rÄ‚Ë‡s", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "In this game you can play with dodgems" + "\n" + "There are 2 players who can move with them." + "\n" + "The first player plays with red dodgem, the second one plays with the blue. "
+                    + "After selecting the dodgem whith which you want to play, press ENTER to move."
+                    + "\n" + "\n" + "The players take turns and who is unable to move loses"
+                    + "\n" + ", because the opponent blocks his/her cars. "
+                    + "\n" + "You can save and load the current game-" + "\n\n" + "Made by Akos Komuves", "Description", JOptionPane.INFORMATION_MESSAGE);
 
         }
     };
@@ -188,8 +188,8 @@ public final class DodgemGameFrame extends JFrame {
     public DodgemGameFrame(int size) throws IOException {
         super("Dodgem Game");
         this.size = size;
-        red = ImageIO.read(new File("red.jpg"));
-        blue = ImageIO.read(new File("blue.jpg"));
+        red = ImageIO.read(new File("images/dodgem/red.jpg"));
+        blue = ImageIO.read(new File("images/dodgem/blue.jpg"));
         setLocation(0, 0);
         setSize(750, 900);
         setLayout(new BorderLayout());
@@ -265,9 +265,9 @@ public final class DodgemGameFrame extends JFrame {
             }
         }
         if (logic.getRedTheNext() == true) {
-            txt.setText("Piros kÄ‚Â¶vetkezik");
+            txt.setText("Red player");
         } else {
-            txt.setText("KÄ‚Â©k kÄ‚Â¶vetkezik");
+            txt.setText("Blue Player");
         }
         panel.revalidate();
         panel.repaint();
@@ -276,9 +276,9 @@ public final class DodgemGameFrame extends JFrame {
     public JMenuBar createMenu() {
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu mainMenu = new JMenu("LehetÄąâ€�sÄ‚Â©gek");
+        JMenu mainMenu = new JMenu("Option");
 
-        JMenu newGameMenu = new JMenu("Ä‚Ĺˇj JÄ‚Ë‡tÄ‚Â©k");
+        JMenu newGameMenu = new JMenu("New Game");
         JMenuItem newGame5 = new JMenuItem(newGameAction10);
         JMenuItem newGame10 = new JMenuItem(newGameAction20);
         JMenuItem newGame15 = new JMenuItem(newGameAction30);
