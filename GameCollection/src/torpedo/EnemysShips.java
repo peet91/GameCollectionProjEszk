@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author kacsa
+ * Ez az osztály felelős az ellenfél hajóinak autómatikus elhelyezéséért a játék indításakor. 
  */
 public class EnemysShips extends JFrame{
     private TorpeDoFrame gui;
@@ -27,6 +27,9 @@ public class EnemysShips extends JFrame{
         this.statusYOU=statusYOU;
     }
     
+    /**
+     * Már készen lévő hajók lepakolása
+     */
     public void placeShips(){
         eNo2();
         eNo3();
@@ -36,6 +39,9 @@ public class EnemysShips extends JFrame{
     
 //ELLENFÉL HAJÓI
 //KETTES
+    /**
+ * Ellenfék 2as hajójának elhelyezése az ellenfél térfelén
+     */
     public void eNo2() {
         int x = generator.nextInt(ROWS);
         int y = generator.nextInt(COLS);
@@ -64,7 +70,9 @@ public class EnemysShips extends JFrame{
     }
     
     //HÁRMAS
-
+/**
+ * Ellenfék 3as hajójának elhelyezése az ellenfél térfelén
+ */
     public void eNo3() {
         int x = generator.nextInt(ROWS);
         int y = generator.nextInt(COLS);
@@ -74,17 +82,12 @@ public class EnemysShips extends JFrame{
                 && statusYOU[x + 1][y] != 1 && statusYOU[x][y + 1] != 1
                 && statusYOU[x + 2][y] != 1 && statusYOU[x][y + 2] != 1) {
             statusYOU[x][y] = 1;
-//            gui.setColorOfButtonYOU(x, y, Color.MAGENTA);
             if (b) {
                 statusYOU[x + 1][y] = 1;
                 statusYOU[x + 2][y] = 1;
-//                gui.setColorOfButtonYOU(x + 1, y, Color.GREEN);
-//               gui.setColorOfButtonYOU(x + 2, y, Color.GREEN);
             } else {
                 statusYOU[x][y + 1] = 1;
                 statusYOU[x][y + 2] = 1;
-//                gui.setColorOfButtonYOU(x, y + 1, Color.YELLOW);
-//                gui.setColorOfButtonYOU(x, y + 2, Color.YELLOW);
             }
         } else {
             eNo3();
@@ -92,7 +95,9 @@ public class EnemysShips extends JFrame{
     }
     
     //NÉGYES
-
+/**
+ * Ellenfék 3as hajójának elhelyezése az ellenfél térfelén
+ */
     public void eNo4() {
         int x = generator.nextInt(ROWS);
         int y = generator.nextInt(COLS);
@@ -103,21 +108,14 @@ public class EnemysShips extends JFrame{
                 && statusYOU[x + 2][y] != 1 && statusYOU[x][y + 2] != 1
                 && statusYOU[x + 3][y] != 1 && statusYOU[x][y + 3] != 1) {
             statusYOU[x][y] = 1;
-//            gui.setColorOfButtonYOU(x, y, Color.MAGENTA);
             if (b) {
                 statusYOU[x + 1][y] = 1;
                 statusYOU[x + 2][y] = 1;
                 statusYOU[x + 3][y] = 1;
-//                gui.setColorOfButtonYOU(x + 1, y, Color.GREEN);
-//                gui.setColorOfButtonYOU(x + 2, y, Color.GREEN);
-//                gui.setColorOfButtonYOU(x + 3, y, Color.GREEN);
             } else {
                 statusYOU[x][y + 1] = 1;
                 statusYOU[x][y + 2] = 1;
                 statusYOU[x][y + 3] = 1;
-//                gui.setColorOfButtonYOU(x, y + 1, Color.YELLOW);
-//                gui.setColorOfButtonYOU(x, y + 2, Color.YELLOW);
-//                gui.setColorOfButtonYOU(x, y + 3, Color.YELLOW);
             }
         } else {
             eNo4();

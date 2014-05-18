@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author kacsa
+ * Ez az osztály szabályozza hogy a felhasználó hová helyezheti el saját hajóinak elemeit
  */
 public class MyShips extends JFrame{
     private TorpeDoFrame gui;
@@ -29,6 +29,9 @@ public class MyShips extends JFrame{
     
     
     //KETTES HAJÓ   
+    /**
+     * Ez a függvény felelős az ellenőrzések elvégzéséért, hogy hova kerülhet a felhasználó 2 elemű hajója
+     */
     public void placeNo2Ship(int i, int j) {
         statusME[i][j] = 1;
         //gui.setColorOfButtonME(i, j, Color.LIGHT_GRAY); //lereak egy részletet
@@ -66,6 +69,10 @@ public class MyShips extends JFrame{
     
     
     //HÁRMAS HAJÓ
+    /**
+     * 
+     * Ez a függvény felelős az ellenőrzések elvégzéséért, hogy hova kerülhet a felhasználó 3 elemű hajója
+     */
     public void placeNo3Ship(int i, int j, int c) {
         statusME[i][j] = 1;//lereak egy részletet
         // gui.setColorOfButtonME(i, j, Color.GRAY); 
@@ -78,7 +85,7 @@ public class MyShips extends JFrame{
         }
 
         //hajó első darabja
-        if (c == 2) {
+        if (c == 2){
             if (i + 1 < COLS) {
                 gui.setButtonEnabledME(i + 1, j, true);
             }
@@ -139,6 +146,11 @@ public class MyShips extends JFrame{
     }//hármas vége
     
     //NÉGYES HAJÓ
+    /**
+     * 
+     * Ez a függvény felelős az ellenőrzések elvégzéséért, hogy hova kerülhet a felhasználó 4 elemű hajója
+     * 
+     */
     public void placeNo4Ship(int i, int j, int c) {
         statusME[i][j] = 1;
         //   gui.setColorOfButtonME(i, j, Color.DARK_GRAY); //lreak egy részletet

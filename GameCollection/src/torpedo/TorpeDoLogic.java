@@ -11,7 +11,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author kacsa
+ * A játék menetének szabályait állítja be
+ * 
  */
 public class TorpeDoLogic extends JFrame {
 
@@ -53,6 +54,11 @@ public class TorpeDoLogic extends JFrame {
         coloring = new Coloring(COLS, ROWS, statusME, statusYOU, c, gui);
     }//konstruktor vége
 
+    /**
+     * 
+     * Ez a függvény határozza meg a játék milyen fázisában a kattintásokank milyen szerepe legyen
+     * 
+     */
     public void buttonPressed(int i, int j) {
 //HAJÓIM LEPAKOLÁSA
 
@@ -111,6 +117,11 @@ public class TorpeDoLogic extends JFrame {
         ++c;
     }
 
+    /**
+     * 
+     * Engedélyezi a kattintásokat a felhasználó térfelén	
+     * 
+     */
     public void enableME() {//bárhova rakhatsz 
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
@@ -121,6 +132,11 @@ public class TorpeDoLogic extends JFrame {
         }
     }
 
+    /**
+     * 
+     * Engedélyezi az ellenfél térfelére való kattintást
+     * 
+     */
     public void enableYOU() {//bárhova rakhatsz 
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
@@ -129,6 +145,11 @@ public class TorpeDoLogic extends JFrame {
         }
     }
 
+    /**
+     * 
+     * Letiltja a felhasználó térfelére való kattintást
+     * 
+     */
     public void disableME() {//sehiva nem rakhatsz 
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
@@ -139,6 +160,11 @@ public class TorpeDoLogic extends JFrame {
         }
     }
 
+    /**
+     * 
+     * Letiltja az ellenfél térfelére való kattintást
+     * 
+     */
     public void disableYOU() {//sehova nem rakhatsz 
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
@@ -147,6 +173,11 @@ public class TorpeDoLogic extends JFrame {
         }
     }
 
+    /**
+     * 
+     * Random koordinátákat generáló függvény
+     * 
+     */
     public void rand(int c) {
         rx = generator.nextInt(2) + 1;
         ry = generator.nextInt(2) + 1;
@@ -154,6 +185,12 @@ public class TorpeDoLogic extends JFrame {
     }
 
 //ELLENFÉL TÁMAD
+    
+    /**
+     * 
+     * Ellenfél támadásának szimulációja
+     * 
+     */
     public void attack(int c) {
         int x = generator.nextInt(ROWS);
         int y = generator.nextInt(COLS);
@@ -184,6 +221,11 @@ public class TorpeDoLogic extends JFrame {
 
     }
 
+    /**
+     * 
+     * Nyerés ellenőrzés a felhasználó oldaláról
+     * 
+     */
     public void youWin() {// győzelem ellenőrzés
         boolean win = true;
         for (int m = 0; m < ROWS; ++m) {
@@ -201,6 +243,11 @@ public class TorpeDoLogic extends JFrame {
         // System.out.println(win);
     }
 
+    /**
+     * 
+     * Nyerés ellenőrzés az ellenfél oldaláról
+     * 
+     */
     public void youLost() {// vesztés ellenőrzés
         boolean lost = true;
         for (int m = 0; m < ROWS; ++m) {

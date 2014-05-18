@@ -25,7 +25,8 @@ import javax.swing.border.EtchedBorder;
 
 /**
  *
- * @author kacsa
+ * Ez az osztály felelős a program megnyitásakor megjelenő vizuális elemek ábrázolásáért 
+ * Továbbá ebben az osztályban kerültek implementálásra a felületen található gombok működésének funkciója
  */
 public class TorpeDoFrame extends JFrame {
 
@@ -41,7 +42,6 @@ public class TorpeDoFrame extends JFrame {
         setTitle("TorpeDo");
         setLocationRelativeTo(null);
         setSize(new Dimension(610, 350)); //width, hight
-        //setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
 
         //Menü
@@ -111,14 +111,10 @@ public class TorpeDoFrame extends JFrame {
 
 //gombok
         //játékos térfele
-        //JPanel panel = new JPanel();
         JPanel buttonPanelMe = new JPanel();
 
         buttonPanelMe.setLayout(new GridLayout(8, 8, 2, 2));
         buttonPanelMe.setBackground(Color.CYAN);
-//        buttonPanelMe.setLayout(new GridLayout(TorpeDoLogic.ROWS, TorpeDoLogic.COLS, 3, 3));
-//        buttonPanelMe.setBackground(Color.ORANGE);
-
         for (int i = 0; i < TorpeDoLogic.ROWS; ++i) {
             for (int j = 0; j < TorpeDoLogic.COLS; ++j) {
                 JButton button = new JButton();
@@ -175,15 +171,24 @@ public class TorpeDoFrame extends JFrame {
 
 // Actions
     //exit
+    /**
+     * 
+     * Ezzel a gombbal lehet bezárni a játék ablakot
+     *
+     */
     private static class ExitListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.exit(0);
+            
         }
     }
 
     //new game
+    /**
+     * 
+     * Ennek a gombnak a seg *tségével kezdhet új játékot a felhasználó
+     */
     private class NewListener implements ActionListener {
 
         @Override
@@ -205,6 +210,10 @@ public class TorpeDoFrame extends JFrame {
     }
 
     //save
+    /**
+     * 
+     * Ennek a gombank a segítségével tudja a felhasználó elmenteni az eddigi játékmenetet 
+     */
     private class saveListener implements ActionListener {
 
         @Override
@@ -220,6 +229,10 @@ public class TorpeDoFrame extends JFrame {
     }
 
     //load
+    /**
+     * 
+     * Ennek a gombank a segítségével lehet betölteni az elementett játékállapotokat
+     */
     private class loadListener implements ActionListener {
 
         @Override
@@ -241,6 +254,11 @@ public class TorpeDoFrame extends JFrame {
     }
 
     //rules
+    /**
+     * 
+     * Erre a gombra kattintva jelennek meg a játékszabályok 
+     *
+     */
     private class rules implements ActionListener {
 
         private Component Message;
@@ -256,6 +274,10 @@ public class TorpeDoFrame extends JFrame {
     }
 
     //legend
+    /**
+     * 
+     * Erre a gombra kattintva rövid jelmagyarázatot nyithat meg a felhasználó amely segítséget nyújt a játékmenet során.
+     */
     private class legend implements ActionListener {
 
         private Component Message;
@@ -271,6 +293,10 @@ public class TorpeDoFrame extends JFrame {
     }
 
     //nfo
+    /**
+     * 
+     * A gomb megjelenít egy információs ablakot amelyben a programmal kapcsolatos adatok jelennek meg
+     */
     private class info implements ActionListener {
 
         private Component Message;
@@ -287,18 +313,36 @@ public class TorpeDoFrame extends JFrame {
     }
 
 //függvények
+    /**
+     * 
+ 	 *beállítja a felhasználó gombjainak a színét
+ 	 *
+     */
     public void setColorOfButtonME(int i, int j, Color color) {
         buttonsME[i][j].setBackground(color);
     }
+    
+    /**
+     * 
+     *beállítja az ellenfél gombjainak a aszínét
+     *
+     */
 
     public void setColorOfButtonYOU(int i, int j, Color color) {
         buttonsYOU[i][j].setBackground(color);
     }
-
+    
+    /**
+     * Szükség esetén a függvényt meghívva letilthetjuk a felhaználó bobjainak funkcióját (Példa: mikor már le rakta hajóit nem aktív a saját ablajáknak gombjai)
+     */
     public void setButtonEnabledME(int i, int j, boolean b) {
         buttonsME[i][j].setEnabled(b);
     }
 
+    /**
+     * Szükség esetén letiltja az ellenfél gombjainak funkcióját (Példa: amikor a felhasználó saját hajóit pakolja le nem tud az ellenfél területén módosításokat végezni)
+     * 
+     */
     public void setButtonEnabledYOU(int i, int j, boolean b) {
         buttonsYOU[i][j].setEnabled(b);
     }

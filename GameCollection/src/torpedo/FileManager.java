@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author kacsa
+ * Ez az osztály felelős a mentés és a betöltés műveletek implementálásáért
  */
 public class FileManager {
 
@@ -24,6 +24,10 @@ public class FileManager {
         this.theGame = theGame;
     }
 
+    /**
+     * 
+     * Mentés metódus működésének implementálása	
+     */
     public static void save(String outputFile, int counter) throws FileNotFoundException {
         FileManager.outputFile = outputFile;
 
@@ -45,6 +49,11 @@ public class FileManager {
         }
     }
 
+    /**
+     * 
+     * Betöltés metódus működésének implementálása
+     * 
+     */
     public static void load(String fajlnev) throws FileNotFoundException {
         File file = new File(fajlnev);
         Scanner sc = new Scanner(file);

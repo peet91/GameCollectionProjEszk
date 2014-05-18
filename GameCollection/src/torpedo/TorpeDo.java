@@ -8,13 +8,14 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author kacsa
+ * a TorpeDo osztály tartalmazza a futtatható állományt
  */
 public class TorpeDo {
 
     /**
-     * @param args the command line arguments
+     * Ez az osztály példányosítja valamint indítja el a programot.
      */
+	
     public static void main(String[] args) {
         JFrame table = new TorpeDoFrame();
         table.setVisible(true);

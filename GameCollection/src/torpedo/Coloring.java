@@ -7,8 +7,7 @@ package torpedo;
 import java.awt.Color;
 
 /**
- *
- * @author kacsa
+ * Ez az osztály végzi a hajók lepakolásának vizuális megjelenítését. 
  */
 public class Coloring {
 
@@ -28,6 +27,9 @@ public class Coloring {
         this.c = c;
     }
 
+    /**
+     * Ez a függvény felelős azért hogy amikor a felhasználó lepakolja a saját hajóit annak színei elkülönüljenek a pálya más elemeitől
+     */
     public void coloringME() {
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
@@ -50,6 +52,9 @@ public class Coloring {
         }
     }
 
+    /**
+     * Ez a föggvény felelős az ellenfél mezőjén való interakciók megjelenítéséért
+     */
     public void coloringYOU() {
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
