@@ -27,8 +27,8 @@ final class BeadGameLogic {
     public BeadGameLogic(BeadGameFrame gui, int x, int y) {
         this.gui = gui;
         setMeret(x, y);
-        player1 = new Player("x.gif", 1);
-        player2 = new Player("o.png", 2);
+        player1 = new Player("images/amoba/x.gif", 1);
+        player2 = new Player("images/amoba/o.png", 2);
         szinezo = new Szinezo();
         aktPlayer = player2;
         setEnableButtons();

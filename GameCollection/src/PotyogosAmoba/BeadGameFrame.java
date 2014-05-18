@@ -135,7 +135,7 @@ public class BeadGameFrame extends JFrame {
         topPanel.setLayout(new BorderLayout());
 
 
-        ImageIcon imageBack = new ImageIcon("hatter.png");
+        ImageIcon imageBack = new ImageIcon("images/amoba/hatter.png");
         JLabel background = new JLabel(imageBack);
         background.setBounds(0, 0, imageBack.getIconWidth(), imageBack.getIconHeight());
         getLayeredPane().add(background, new Integer(Integer.MIN_VALUE));
