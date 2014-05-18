@@ -10,8 +10,8 @@ import javax.swing.ImageIcon;
 
 /**
 * A játék mentéséért és betöltéséért felelős osztály
+* @author Zoltán
 */
-
 public class Fajlkezelo {
 
     private String beFajlnev;
@@ -25,7 +25,6 @@ public class Fajlkezelo {
     /**
     * Aktuális állapot mentése
     */
-    
     public void Mentes(String kiFajlnev, String elsojatekosKep, String masodikjatekosKep, int aktJatekos, int sorok, int oszlopok, ImageIcon[][] elemek) throws FileNotFoundException {
         this.kiFajlnev = kiFajlnev;
         FileOutputStream os = new FileOutputStream(kiFajlnev);

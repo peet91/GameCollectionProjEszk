@@ -6,13 +6,16 @@ import javax.swing.ImageIcon;
 
 /**
 * Ez az osztály felelős a játék állapotának kiértékeléséért
+* @author Zoltán
 */
 
 public class Biro {
 
     void win(int x, int y, ImageIcon[][] szinek, BeadGameFrame gui, int ROWS, Player aktPlayer) {
         boolean vege = false;
-        //VÃ­zszintes gyÅzelem vizsgÃ¡lat
+        /**
+        * Vízszintes győzelem vizsgálat
+        */   
         int k = 1;
         ImageIcon szin = null;
         for (int z = y - 3; z < y + 4 && !vege; ++z) {
@@ -28,15 +31,14 @@ public class Biro {
                     for (int w = z - 3; w <= z; w++) {
                         gui.showWin(x, w);
                     }
-                    gui.uzen("VÃ­zszintes gyÅzelemmel nyert a " + aktPlayer.getNumber() + ". jÃ¡tÃ©kos! ");
+                    gui.uzen("Vízszintes győzelemmel nyert a " + aktPlayer.getNumber() + ". játékos! ");
                 }
             }
         }
         
         /**
         * Függőleges győzelem vizsgálat
-        */
-        
+        */    
         szin = null;
         k = 1;
         for (int z = x - 3; z < x + 4 && !vege; ++z) {
@@ -52,12 +54,12 @@ public class Biro {
                     for (int w = z - 3; w <= z; w++) {
                         gui.showWin(w, y);
                     }
-                    gui.uzen("FÃ¼ggÅleges gyÅzelemel nyert a " + aktPlayer.getNumber() + ". jÃ¡tÃ©kos!");
+                    gui.uzen("Függőleges győzelemel nyert a " + aktPlayer.getNumber() + ". játékos!");
                 }
             }
         }
         /**
-        * Átlós győzelem vizsgálat
+        * Atlós győzelem vizsgálat
         */
         szin = null;
         k = 1;
@@ -74,12 +76,12 @@ public class Biro {
                     for (int w = z - 3; w <= z; w++) {
                         gui.showWin(w + x, w + y);
                     }
-                    gui.uzen("CsÃ¶kkenÅ Ã¡tlÃ³s gyÅzelemmel nyert a " + aktPlayer.getNumber() + ". jÃ¡tlÃ©kos!");
+                    gui.uzen("Csökkenő átlós győzelemmel nyert a " + aktPlayer.getNumber() + ". játékos!");
                 }
             }
         }
         /**
-        * Átlós győzelem vizsgálat
+        * Atlós győzelem vizsgálat
         */
         szin = null;
         k = 1;
@@ -96,7 +98,7 @@ public class Biro {
                     for (int w = z - 3; w <= z; w++) {
                         gui.showWin(w + x, y - w);
                     }
-                    gui.uzen("NÃ¶vekvÅ Ã¡tlÃ³s gyÅzelemmel nyert a " + aktPlayer.getNumber() + ". jÃ¡tÃ©kos!");
+                    gui.uzen("Növekvő átlós győzelemmel nyert a " + aktPlayer.getNumber() + ". játékos!");
                 }
             }
         }
@@ -113,7 +115,7 @@ public class Biro {
             }
         }
         if (b) {
-            gui.uzen("Nem bÃ­rtatok egymÃ¡ssal!");
+            gui.uzen("Nem bírtatok egymással!");
         }
     }
 }
