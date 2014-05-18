@@ -6,12 +6,10 @@ import static PotyogosAmoba.BeadGameLogic.COLS;
 import javax.swing.ImageIcon;
 
 /**
- *
- * @author Zoltán
- */
+* Egy adott mező színét meghatározó objektum
+*/
 public class Szinezo {
 
-    //A tábla egy adott elemének a hátterét állítja be
     public void szinez(int ROWS, ImageIcon[][] szinek, BeadGameFrame gui) {
 
         for (int j = 0; j < COLS; ++j) {

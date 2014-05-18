@@ -3,6 +3,10 @@ package PotyogosAmoba;
 
 import javax.swing.ImageIcon;
 
+/**
+* A játékmezőben a játékost reprezentáló objektum
+*/
+
 public class Figura {
 
     private ImageIcon image;

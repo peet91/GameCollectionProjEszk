@@ -5,9 +5,9 @@ import java.io.FileNotFoundException;
 import javax.swing.ImageIcon;
 
 /**
- *
- * @author Buci
- */
+* A játék logikai működéséért felelős osztály
+*/
+
 final class BeadGameLogic {
 
     public static int ROWS;
@@ -19,7 +19,10 @@ final class BeadGameLogic {
     Player aktPlayer;
     Fajlkezelo kezelo;
     Szinezo szinezo;
-//Új játék megnyomásakor lefutó konstruktor
+    
+    /**
+    * Új játék indításánál lefutó konstruktor
+    */
 
     public BeadGameLogic(BeadGameFrame gui, int x, int y) {
         this.gui = gui;
@@ -29,9 +32,11 @@ final class BeadGameLogic {
         szinezo = new Szinezo();
         aktPlayer = player2;
         setEnableButtons();
-        gui.setStatusBar("A(z) " + aktPlayer.getNumber() + ". játékos kezd!");
+        gui.setStatusBar("A(z) " + aktPlayer.getNumber() + ". jÃ¡tÃ©kos kezd!");
     }
-//Játék betöltésénél lefutó konstruktor
+    /**
+    * Játék betöltésénél lefutó konstruktor
+    */
 
     public BeadGameLogic(String fajlnev, BeadGameFrame gui) throws FileNotFoundException {
         this.gui = gui;
@@ -40,7 +45,10 @@ final class BeadGameLogic {
         jatekBetolt(fajlnev);
 
     }
-//Gomb megnyomásakor ez hívódik meg
+
+    /**
+    * A gomb megnyomás hatásait létrehozó függvény
+    */
 
     public void buttonPressed(int i, int j) {
         insertButton(i, j);
@@ -51,7 +59,10 @@ final class BeadGameLogic {
         setEnableButtons();
         nextPlayer();
     }
-//Beállítja mely gomb legyen aktiv minden nyomás után
+
+    /**
+    * Aktív gombok beállítása
+    */
 
     public void setEnableButtons() {
         boolean b = true;
@@ -64,7 +75,10 @@ final class BeadGameLogic {
         }
 
     }
-//A tábla összes gombját inaktívra állítja
+
+    /**
+    * Tábla összes gombjának inaktívvá állítása
+    */
 
     private void setAllButtonDisable() {
         for (int i = 0; i < ROWS; ++i) {
@@ -73,29 +87,38 @@ final class BeadGameLogic {
             }
         }
     }
-//Egy új jelet szúr be a táblába
 
     private void insertButton(int x, int y) {
         szinek[x][y] = aktPlayer.getFigura().getImage();
     }
 
-//A következő játékost adja meg
+
+    /**
+    * Következő játékos meghatározása
+    */
+    
     private void nextPlayer() {
         if (aktPlayer == player1) {
             aktPlayer = player2;
         } else {
             aktPlayer = player1;
         }
-        gui.setStatusBar("A(z) " + aktPlayer.getNumber() + ". játékos következik!");
+        gui.setStatusBar("A(z) " + aktPlayer.getNumber() + ". jÃ¡tÃ©kos kÃ¶vetkezik!");
     }
 
-//Tábla méretének beállítása
+    /**
+    * Tábla méretének beállítása
+    */
+    
     public void setMeret(int i, int j) {
         ROWS = i;
         COLS = j;
         szinek = new ImageIcon[ROWS][COLS];
     }
-//Az egész táblát a kezdőállapotra állítja
+
+    /**
+    * Kezdőállípot visszaállítása
+    */
 
     public void reset() {
         for (int i = 0; i < ROWS; ++i) {
@@ -105,7 +128,10 @@ final class BeadGameLogic {
         }
         szinezo.szinez(ROWS, szinek, gui);
     }
-//A fájlkezelőnek megadja a tábla adatait mentésre
+
+    /**
+    * Fájlkezelőnek adatok átadása
+    */
 
     void jatekMentese(String fajlnev) throws FileNotFoundException {
         if (kezelo == null) {
@@ -113,25 +139,25 @@ final class BeadGameLogic {
         }
         kezelo.Mentes(fajlnev, player1.getFigura().getImageNev(), player2.getFigura().getImageNev(), aktPlayer.getNumber(), ROWS, COLS, szinek);
     }
-//Az objektum fájlkezelőjét állítja be fájl betöltéséhez
 
+    /**
+    * Betöltési beállítások
+    */
+    
     void jatekBetolt(String fajlnev) throws FileNotFoundException {
         if (kezelo == null) {
             kezelo = new Fajlkezelo(this);
         }
         kezelo.Betoltes(fajlnev);
     }
-//A betöltésnél a fájlkezelő ezzel állítja be az első játékos képét
 
     public void setPlayer1Image(String imageNev) {
         player1.getFigura().setImage(imageNev);
     }
-//A betöltésnél a fájlkezelő ezzel állítja be a második játékos képét
 
     public void setPlayer2Image(String imageNev) {
         player2.getFigura().setImage(imageNev);
     }
-//A betöltésnél az aktiv játékos beállítása
 
     public void setAktPlayer(int szam) {
         if (player1.getNumber() == szam) {
@@ -140,7 +166,6 @@ final class BeadGameLogic {
             aktPlayer = player2;
         }
     }
-// Betöltésnél az aktuálisan beolvasott érték beírása a táblába
 
     public void setSzinek(int i, int j, ImageIcon image) {
         szinek[i][j] = image;

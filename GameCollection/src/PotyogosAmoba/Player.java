@@ -2,6 +2,10 @@ package PotyogosAmoba;
 
 import javax.swing.ImageIcon;
 
+/**
+* A játékos objektum
+*/
+
 public class Player {
 
     private int number;

@@ -21,6 +21,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 
+/**
+* A játék grafikai megjelénítéséért felelős osztály
+*/
 
 public class BeadGameFrame extends JFrame {
 
@@ -32,7 +35,7 @@ public class BeadGameFrame extends JFrame {
     private boolean fajlbolOlvas;
 
     public BeadGameFrame() {
-        setTitle("Potyogós amőba");
+        setTitle("PotyogÃ³s amÅba");
         setSize(new Dimension(1000, 800));
         setMinimumSize(new Dimension(1000, 800));
         setLocation(new Point(150, 100));
@@ -42,36 +45,37 @@ public class BeadGameFrame extends JFrame {
 
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
-        JMenu fileMenu = new JMenu("Fájl");
+        JMenu fileMenu = new JMenu("FÃ¡jl");
         menuBar.add(fileMenu);
-        JMenu infoMenu = new JMenu("Súgó");
+        JMenu infoMenu = new JMenu("SÃºgÃ³");
         menuBar.add(infoMenu);
 
-        JMenuItem information = new JMenuItem("Játékszabály");
+        JMenuItem information = new JMenuItem("JÃ¡tÃ©kszabÃ¡ly");
         infoMenu.add(information);
         information.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(topPanel, "Játékszabály: \n \n Minden lépésben egy korongot teszünk az egyik oszlopba.\n"
-                        + " A korong az oszlop legfelső szabad pozícióján áll meg:\n ha az oszlop üres, legalul,"
-                        + " egyébként a legfelső korong fölött.\n Ha az oszlop betelt, oda már nem lehet tenni."
-                        + " Ha minden oszlop betelt, döntetlen.\n \n Cél:\n A négy figuránk sorba állítása vízszintesen,"
-                        + " függőlegesen vagy átlósan.");
+                JOptionPane.showMessageDialog(topPanel, "JÃ¡tÃ©kszabÃ¡ly: \n \n Minden lÃ©pÃ©sben egy korongot teszÃ¼nk az egyik oszlopba.\n"
+                        + " A korong az oszlop legfelsÅ szabad pozÃ­ciÃ³jÃ¡n Ã¡ll meg:\n ha az oszlop Ã¼res, legalul,"
+                        + " egyÃ©bkÃ©nt a legfelsÅ korong fÃ¶lÃ¶tt.\n Ha az oszlop betelt, oda mÃ¡r nem lehet tenni."
+                        + " Ha minden oszlop betelt, dÃ¶ntetlen.\n \n CÃ©l:\n A nÃ©gy figurÃ¡nk sorba Ã¡llÃ­tÃ¡sa vÃ­zszintesen,"
+                        + " fÃ¼ggÅlegesen vagy Ã¡tlÃ³san.");
             }
         });
 
-        JMenuItem keszito = new JMenuItem("Készítő");
+        JMenuItem keszito = new JMenuItem("KÃ©szÃ­tÅ");
         infoMenu.add(keszito);
         keszito.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(topPanel, "Készítő: \n \n Kis Zoltán \n KIZSAAI.ELTE \n Projekt eszközök");
+                JOptionPane.showMessageDialog(topPanel, "KÃ©szÃ­tÅ: \n \n Kis ZoltÃ¡n \n KIZSAAI.ELTE \n Projekt eszkÃ¶zÃ¶k");
             }
         });
 
-        JMenu newItem = new JMenu("Új játék");
+        JMenu newItem = new JMenu("Ãj jÃ¡tÃ©k");
         fileMenu.add(newItem);
 
+        
         for (int i = 6; i > 2; i--) {
             JMenuItem subItem = new JMenuItem(Integer.toString(40 / i) + " x " + Integer.toString(40 / i));
             newItem.add(subItem);
@@ -88,26 +92,34 @@ public class BeadGameFrame extends JFrame {
                 }
             });
         }
+        
+        /**
+        * Játék mentése gomb létrehozása
+        */
 
-        JMenuItem saveItem = new JMenuItem("Játék mentése");
+        JMenuItem saveItem = new JMenuItem("JÃ¡tÃ©k mentÃ©se");
         saveItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String fajlnev = JOptionPane.showInputDialog("Add meg milyen nevű fájlba mentsünk!");
+                    String fajlnev = JOptionPane.showInputDialog("Add meg milyen nevÅ± fÃ¡jlba mentsÃ¼nk!");
                     logic.jatekMentese(fajlnev);
                 } catch (FileNotFoundException ex) {
-                    hibaUzen("A mentés sikertelen!");
+                    hibaUzen("A mentÃ©s sikertelen!");
                 }
             }
         });
         fileMenu.add(saveItem);
 
-        JMenuItem loadItem = new JMenuItem("Játék betöltése");
+        /**
+        * Játék betöltése gomb létrehozása
+        */
+        
+        JMenuItem loadItem = new JMenuItem("JÃ¡tÃ©k betÃ¶ltÃ©se");
         loadItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String fajlnev = JOptionPane.showInputDialog("Add meg milyen nevű fájlból töltsünk be!");
+                String fajlnev = JOptionPane.showInputDialog("Add meg milyen nevÅ± fÃ¡jlbÃ³l tÃ¶ltsÃ¼nk be!");
                 betolt(fajlnev);
 
             }
@@ -130,7 +142,7 @@ public class BeadGameFrame extends JFrame {
         topPanel.setOpaque(false);
         setContentPane(topPanel);
 
-        statusBarLabel = new JLabel(" Üdvözöllek a játékban!");
+        statusBarLabel = new JLabel(" ÃdvÃ¶zÃ¶llek a jÃ¡tÃ©kban!");
 
         statusBarLabel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
         topPanel.add(statusBarLabel, BorderLayout.SOUTH);
@@ -146,6 +158,11 @@ public class BeadGameFrame extends JFrame {
                 logic = null;
             }
         }
+        
+        /**
+        * Játéktér megrajzolása
+        */
+        
         panel = new JPanel();
         panel.setMinimumSize(new Dimension(1000, 800));
         topPanel.add(panel, BorderLayout.CENTER);
@@ -180,6 +197,11 @@ public class BeadGameFrame extends JFrame {
 
     }
 
+    
+    /**
+    * Mező színének beállítása
+    */
+    
     public void setButton(int i, int j, boolean b) {
         buttons[i][j].setEnabled(b);
         if (b) {
@@ -197,8 +219,8 @@ public class BeadGameFrame extends JFrame {
     public void uzen(String uzenet) {
         int n = JOptionPane.showConfirmDialog(
                 null,
-                uzenet + "\n" + "Egy visszavágó?",
-                "A játék véget ért!",
+                uzenet + "\n" + "Egy visszavÃ¡gÃ³?",
+                "A jÃ¡tÃ©k vÃ©get Ã©rt!",
                 JOptionPane.YES_NO_OPTION);
         if (n == 0) {
             logic.reset();
@@ -240,7 +262,7 @@ public class BeadGameFrame extends JFrame {
             logic.szinezes();
             logic.setEnableButtons();
         } catch (FileNotFoundException ex) {
-            hibaUzen("Nincs ilyen mentésed!");
+            hibaUzen("Nincs ilyen mentÃ©sed!");
         }
     }
 }

@@ -8,6 +8,10 @@ import java.io.PrintStream;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 
+/**
+* A játék mentéséért és betöltéséért felelős osztály
+*/
+
 public class Fajlkezelo {
 
     private String beFajlnev;
@@ -18,6 +22,10 @@ public class Fajlkezelo {
         this.kezeltJatek = kezeltJatek;
     }
 
+    /**
+    * Aktuális állapot mentése
+    */
+    
     public void Mentes(String kiFajlnev, String elsojatekosKep, String masodikjatekosKep, int aktJatekos, int sorok, int oszlopok, ImageIcon[][] elemek) throws FileNotFoundException {
         this.kiFajlnev = kiFajlnev;
         FileOutputStream os = new FileOutputStream(kiFajlnev);
@@ -39,6 +47,10 @@ public class Fajlkezelo {
 
 
     }
+    
+    /**
+    * Aktuális állapot betöltése
+    */
 
     public void Betoltes(String fajlnev) throws FileNotFoundException {
         File file = new File(fajlnev);
