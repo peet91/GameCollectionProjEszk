@@ -32,7 +32,7 @@ final class BeadGameLogic {
         szinezo = new Szinezo();
         aktPlayer = player2;
         setEnableButtons();
-        gui.setStatusBar("A(z) " + aktPlayer.getNumber() + ". jÃ¡tÃ©kos kezd!");
+        gui.setStatusBar("A(z) " + aktPlayer.getNumber() + ". játékos kezd!");
     }
     /**
     * Játék betöltésénél lefutó konstruktor
@@ -103,7 +103,7 @@ final class BeadGameLogic {
         } else {
             aktPlayer = player1;
         }
-        gui.setStatusBar("A(z) " + aktPlayer.getNumber() + ". jÃ¡tÃ©kos kÃ¶vetkezik!");
+        gui.setStatusBar("A(z) " + aktPlayer.getNumber() + ". játékos következik!");
     }
 
     /**
