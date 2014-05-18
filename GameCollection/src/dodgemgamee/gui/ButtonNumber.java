@@ -9,12 +9,16 @@ import java.awt.Point;
 import javax.swing.JButton;
 
 /**
- *
- * @author Ákos
+ * Ez valositja meg a kepen lathato teruleteket, amikre lehet kattintani
+ * @author Akos
  */
 public class ButtonNumber extends JButton{
     private Point pnt;
-    
+    /**
+     * A konstruktora
+     * @param x az x koordinata
+     * @param y az y koordinata
+     */
     public ButtonNumber(int x, int y)
     {
         super();

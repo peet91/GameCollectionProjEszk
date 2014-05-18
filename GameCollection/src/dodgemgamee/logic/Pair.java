@@ -5,8 +5,9 @@
 package dodgemgamee.logic;
 
 /**
+ * egy koordinatat megvalosito par osztaly
+ * @author Akos
  *
- * @author Ákos
  */
 class Pair {
     private int x;

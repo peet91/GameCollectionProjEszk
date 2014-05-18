@@ -7,19 +7,20 @@ package dodgemgamee.logic;
 import java.io.Serializable;
 
 /**
+ * A jatek logikai reszet leiro osztaly
+ * @author Akos
  *
- * @author Ă�kos
  */
 public class GameLogic implements Serializable{
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 3960041898439633226L;
 	public int size;
     private int map[][];
     private boolean redTheNext = true;
-
+/**
+ * a logika konstruktora
+ * @param size a palya merete
+ */
     public GameLogic(int size) {
         this.size = size;
         map = new int[size][size];
@@ -41,7 +42,12 @@ public class GameLogic implements Serializable{
         }
         return str;
     }
-
+/**
+ * autot mozgato fuggveny
+ * @param x x koordinata
+ * @param y y koordinata
+ * @param way melyik ut
+ */
     public void move(int x, int y, Way way) {
         if (redTheNext && map[x][y] == 1) {
             switch (way) {
@@ -114,7 +120,10 @@ public class GameLogic implements Serializable{
             }
         }
     }
-    
+    /**
+     * a jatek veget figyelo fuggveny
+     * @return 1 vagy 2 nyert, 0 nem
+     */
     public int endGame()
     {
         if (!hasFreeRed())
@@ -128,7 +137,10 @@ public class GameLogic implements Serializable{
         return 0;
         
     }
-    
+    /**
+     * van-e meg szabad piros a palyan 
+     * @return igaz/hamis ertek
+     */
     public boolean hasFreeRed()
     {
         for(int i=0; i<size-1; i++)
@@ -160,7 +172,10 @@ public class GameLogic implements Serializable{
         }
         return false;
     }
- 
+ /**
+  * van-e meg szabad kek a palyan
+  * @return igaz/hamis ertek
+  */
     public boolean hasFreeBlue()
     {
         for(int i=0; i<size; i++)
@@ -191,7 +206,8 @@ public class GameLogic implements Serializable{
             }
         }
         return false;
-    }    
+    } 
+    
     public int getMap(int x, int y)
     {
         return map[x][y];

@@ -36,8 +36,8 @@ import dodgemgamee.logic.GameLogic;
 import dodgemgamee.logic.Way;
 
 /**
- *
- * @author Ä‚ďż˝kos
+ * a jatek foablaka
+ * @author Akos
  */
 public final class DodgemGameFrame extends JFrame {
 
@@ -184,7 +184,11 @@ public final class DodgemGameFrame extends JFrame {
 
         }
     };
-
+/**
+ * a konstruktora a foablaknak
+ * @param size a megadott merete a palyanak
+ * @throws IOException
+ */
     public DodgemGameFrame(int size) throws IOException {
         super("Dodgem Game");
         this.size = size;
@@ -202,7 +206,10 @@ public final class DodgemGameFrame extends JFrame {
         SouthPanel.add(txt);
         getContentPane().add(SouthPanel, BorderLayout.SOUTH);
     }
-
+/**
+ * uj jatekot elindito
+ * @param size a palya merete
+ */
     public final void newGame(int size) {
 
         this.size = size;
@@ -235,7 +242,9 @@ public final class DodgemGameFrame extends JFrame {
         getContentPane().add(panel, BorderLayout.CENTER);
         updatePanel();
     }
-
+/**
+ * az ablakot frissito fuggveny
+ */
     private void updatePanel() {
 
         if (logic.endGame() == 1) {
@@ -272,7 +281,10 @@ public final class DodgemGameFrame extends JFrame {
         panel.revalidate();
         panel.repaint();
     }
-
+/**
+ * a menut elkeszito fuggveny
+ * @return
+ */
     public JMenuBar createMenu() {
         JMenuBar menuBar = new JMenuBar();
 

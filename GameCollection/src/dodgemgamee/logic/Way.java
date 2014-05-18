@@ -1,8 +1,8 @@
 package dodgemgamee.logic;
 
 /**
- *
- * @author Ákos
+ * utiranyokat megvalosito osztaly
+ * @author Akos
  */
 public enum Way {
 
