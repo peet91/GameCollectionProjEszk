@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 /**
  * 
  * @author R
+ * A fő frame
  */
 public class VakondGameFrame extends JFrame{
 
@@ -39,14 +40,14 @@ public class VakondGameFrame extends JFrame{
 		new JLabel();
 		setVisible(true);
 		
-		// Transparent 16 x 16 pixel cursor image.
+		// Átlátszó 16x16 kép.
 		BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
 
-		// Create a new blank cursor.
+		// Új üres kurzor
 		Cursor blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(
 		    cursorImg, new Point(0, 0), "blank cursor");
 
-		// Set the blank cursor to the JFrame.
+		// Ennek a framenak beállítjuk az egeret
 		getContentPane().setCursor(blankCursor);
 	}
 }

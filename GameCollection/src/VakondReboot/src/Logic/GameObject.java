@@ -5,6 +5,7 @@ import VakondReboot.src.Misc.Position2D;
 /**
  *
  * @author R
+ * A játékban megjelenő objektumok osztálya
  */
 public class GameObject {
     private Position2D pos;

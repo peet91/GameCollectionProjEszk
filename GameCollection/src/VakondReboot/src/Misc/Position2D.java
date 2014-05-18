@@ -9,6 +9,7 @@ package VakondReboot.src.Misc;
 /**
  *
  * @author R
+ * Position2D a vakond pozíciója
  */
 public class Position2D {
     
@@ -24,6 +25,9 @@ public class Position2D {
         this.y = y;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(Object obj) {
         if(obj != null && obj.getClass() == this.getClass())

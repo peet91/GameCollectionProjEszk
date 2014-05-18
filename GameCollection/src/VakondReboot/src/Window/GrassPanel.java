@@ -18,6 +18,10 @@ import javax.swing.Timer;
 import VakondReboot.src.Logic.Game;
 
 @SuppressWarnings("serial")
+
+/*
+ * A panel, ahol megjelenik a játék, és lehet kattingatni
+ */
 public class GrassPanel extends JPanel implements MouseListener {
 
 	private TreeMap<String, ImageIcon> images;
@@ -49,6 +53,9 @@ public class GrassPanel extends JPanel implements MouseListener {
 		addMouseListener(this);
 	}
 
+	/*
+	 * Betölti a képeket
+	 */
 	private void loadImages() {
 		ImageIcon ic = new ImageIcon("images/Vakond/mole.png");
 		images = new TreeMap<>();
@@ -86,6 +93,11 @@ public class GrassPanel extends JPanel implements MouseListener {
 		drawCrossHair(g2d);
 	}
 
+	/**
+	 * @param g2d
+	 * 
+	 * A célkeresztet kirajzoló függvény
+	 */
 	private void drawCrossHair(Graphics2D g2d) {
 		if (getMousePosition() != null) {
 			double mx, my;
@@ -96,6 +108,9 @@ public class GrassPanel extends JPanel implements MouseListener {
 		}
 	}
 
+	/*
+	 * A képfrissítő actionListener
+	 */
 	private ActionListener drawActionListener = new ActionListener() {
 
 		@Override
@@ -104,6 +119,9 @@ public class GrassPanel extends JPanel implements MouseListener {
 		}
 	};
 
+	/*
+	 * Időzítő
+	 */
 	private ActionListener secondsActionL = new ActionListener() {
 
 		@Override
@@ -116,6 +134,9 @@ public class GrassPanel extends JPanel implements MouseListener {
 		}
 	};
 
+	/*
+	 *	Játék frissítése 
+	 */
 	private ActionListener gameActionListener = new ActionListener() {
 
 		@Override
