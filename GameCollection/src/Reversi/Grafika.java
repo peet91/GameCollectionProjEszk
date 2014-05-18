@@ -20,7 +20,10 @@ public class Grafika extends JFrame {
     private Logika logic;
     private String jatekos;
     private JPanel panel;
-
+    /**
+    * The constructor of the graphics of the Reversi
+    * creates the playing field and the menu.
+    */
     public Grafika() {
         setSize(400, 400);
         //setSize(Logika.getROWS() * meret, Logika.getCOLS() * meret);
@@ -61,17 +64,30 @@ public class Grafika extends JFrame {
         helpMenu.add(about);
         panel = new JPanel();
     }
-
+    /**
+    * Sets the color of a button.
+    * @param i the number of the row of the button
+    * @param j the number of the column of the button
+    * @param color the color to set the button
+    */
     public void setGombSzin(int i, int j, Color color) {
         buttons[i][j].setBackground(color);
     }
-
+    /**
+    * Sets the state of a button (enabled or disabled)
+    * @param i the number of the row of the button
+    * @param j the number of the column of the button
+    * @param bool the state to set the button to
+    */
     public void setGombState(int i, int j, boolean bool) {
         if (!(buttons[i][j].isEnabled() && bool)) {
             buttons[i][j].setEnabled(bool);
         }
     }
-
+    /**
+    * Sets the title of the playing window.
+    * @param szin the color of the actual player
+    */
     public void setCim(int szin) {
         if (szin == 1) {
             this.jatekos = logic.getKor() + ". kör: Fekete jön";
@@ -85,7 +101,9 @@ public class Grafika extends JFrame {
         }
 
     }
-
+    /**
+    * Creates the game over
+    */
     public void vege() {
         int tmp = logic.kiNyert();
         if (tmp == 1) {
@@ -96,6 +114,9 @@ public class Grafika extends JFrame {
             JOptionPane.showMessageDialog(null, "Döntetlen!", "Játék vége", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+    /**
+    * Action Listener for the help dialog in the menu
+    */
     private static class HelpListener implements ActionListener {
 
         @Override
@@ -107,7 +128,9 @@ public class Grafika extends JFrame {
         }
 
     }
-
+    /**
+    * Action Listener for the about dialog in the menu
+    */
     private static class AboutListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -115,7 +138,9 @@ public class Grafika extends JFrame {
                     "A program készítője:Hechtl Olivér\nEHA:HEOSAAI.ELTE\nNeptun:TGBSJU","About",1);
         }
     }
-
+    /**
+    * Action Listener for the save dialog in the menu
+    */
     private class SaveListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -127,7 +152,9 @@ public class Grafika extends JFrame {
             }
         }
     }
-
+    /**
+    * Action Listener for the open dialog in the menu
+    */
     private class OpenListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -146,7 +173,9 @@ public class Grafika extends JFrame {
             }
         }
     }
-
+    /**
+    * Action Listener for the new game dialog in the menu
+    */
     private class NewListener implements ActionListener {
 
         private int size;
@@ -160,7 +189,9 @@ public class Grafika extends JFrame {
             kirajzol(size, 0, null);
         }
     }
-
+    /**
+    * Action Listener for the exit dialog in the menu
+    */
     private class ExitListener implements ActionListener {
 
         @Override
@@ -168,7 +199,12 @@ public class Grafika extends JFrame {
             System.exit(0);
         }
     }
-
+    /**
+    * Draws the playing area of the Reversi game
+    * @param size the size of the playing area
+    * @param type the type of the game: either start, or loaded from saved state
+    * @param file the file to read the saved game state.
+    */
     private void kirajzol(int size, int type, File file) {
         this.panel.removeAll();
         logic = new Logika(this, size, 1);

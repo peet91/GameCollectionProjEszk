@@ -14,15 +14,28 @@ public final class Logika {
     private int kor;
     private boolean feherPasszol;
     private boolean feketePasszol;
-
+    /**
+    * Getter for kor attribute
+    * @return the kor attribute
+    */
     public int getKor() {
         return kor;
     }
-
+    /**
+    * Getter for meret attribute
+    * @return the meret attribute
+    */
     public int getMeret() {
         return meret;
     }
-
+    /**
+    * Initializes the Logika class
+    * sets the size of the play field
+    * sets the fields to the default color
+    * @param gui the Grafika class
+    * @param meret the size of the play area
+    * @param kor the actual round number
+    */
     public Logika(Grafika gui, int meret, int kor) {
         this.meret = meret;
         this.gui = gui;
@@ -40,7 +53,12 @@ public final class Logika {
     //Reversi logika: egyik player jön,aztán a másik player jön,eventmanager,
     //+gomb hogy ki jön,kezdőhelyzet,hova rakhat a következő játékos
     //hely ellenőrzése,
-
+    /**
+    * Sets the colors array to the
+    * starting configuration 
+    * sets the center fields according to
+    * the rules of Reversi
+    */
     public void kezdes() {
         //kezdőhelyzet:
         colors[meret / 2 - 1][meret / 2 - 1] = 2;
@@ -50,7 +68,10 @@ public final class Logika {
         gombKirajzol();
         showLegalMoves(kor % 2 == 0 ? 2 : 1);
     }
-
+    /**
+    * reads the colors array, and sets the buttons 
+    * in the gui to the colors of the array.
+    */
     public void gombKirajzol() {
         for (int i = 0; i < meret; ++i) {
             for (int j = 0; j < meret; ++j) {
@@ -63,7 +84,11 @@ public final class Logika {
             }
         }
     }
-
+    /**
+    * Shows the legal moves on the playing field
+    * @param szin the color of the actual player
+    * @return a boolean value containig whether the player has legal moves
+    */
     public boolean showLegalMoves(int szin) {
         boolean has = false;
         int aszin;
@@ -181,7 +206,12 @@ public final class Logika {
         }
         return has;
     }
-
+    /**
+    * Pushes the button on the gui
+    * @param i the number of the row on the playing field
+    * @param j the number of the column on the playing field
+    * @param szin the color of the actual player
+    */
     public void gombNyomva(int i, int j, int szin) {
         colors[i][j] = szin;
         if (szin == 2) {
@@ -196,7 +226,13 @@ public final class Logika {
             }
         }
     }
-
+    /**
+    * Turns the buttons on the playing field according
+    * to the turned button by the actual player
+    * @param i the number of the row of the turned button by the actual player
+    * @param j the number of the column of the turned button by the actual player
+    * @param szin the color of the actual player
+    */
     private void fordit(int i, int j, int szin) {
         int aszin;
         Color mire;
@@ -310,7 +346,9 @@ public final class Logika {
             }
         }
     }
-
+    /**
+    * Sets the next round according to the played field
+    */
     public void kovetkezoKor() {
         kor++;
         if (feherPasszol && feketePasszol) {
@@ -336,7 +374,10 @@ public final class Logika {
             }
         }
     }
-
+    /**
+    * Computes the winner player
+    * @return the number of the winner player
+    */
     public int kiNyert() {
         int fekete = 0;
         int feher = 0;
@@ -357,7 +398,10 @@ public final class Logika {
             return 0;
         }
     }
-
+    /**
+    * Loads a saved game state from a file
+    * @param file the name of the file relative of the main class
+    */
     public void betolt(File file) {
         try {
             Scanner in = new Scanner(file);
@@ -376,7 +420,11 @@ public final class Logika {
         }
 
     }
-
+    /**
+    * Checks the syntax of a saved file.
+    * @param file the name of the file relative of the main class
+    * @return boolean value containing whether the syntax being correct in the file
+    */
     public static boolean ellenoriz(File file) {
         try {
             Scanner in = new Scanner(file);
@@ -409,7 +457,10 @@ public final class Logika {
             return false;
         }
     }
-
+    /**
+    * Saves the current state of the game
+    * @param file the name of the file relative of the main class
+    */
     public void elment(File file) {
         try {
             PrintWriter out = new PrintWriter(file);
@@ -426,7 +477,11 @@ public final class Logika {
             System.out.println("Nem találom a fájlt.");
         }
     }
-
+    /**
+    * Gets the size of the playing field from a saved state file
+    * @param file the name of the file relative of the main class
+    * @return the size of the field
+    */
     public static int getSizeFromFile(File file) {
         try {
             Scanner in = new Scanner(file);
@@ -436,7 +491,11 @@ public final class Logika {
             return 0;
         }
     }
-
+    /**
+    * Gets the number of the actual round from the file
+    * @param file the name of the file relative of the main class
+    * @return the number of the actual round
+    */
     public static int getKorFromFile(File file) {
         try {
             Scanner in = new Scanner(file);
