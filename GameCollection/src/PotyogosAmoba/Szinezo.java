@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 
 /**
 * Egy adott mező színét meghatározó objektum
+* @author Zoltán
 */
 public class Szinezo {
 

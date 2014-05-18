@@ -23,8 +23,8 @@ import javax.swing.border.EtchedBorder;
 
 /**
 * A játék grafikai megjelénítéséért felelős osztály
+* @author Zoltán
 */
-
 public class BeadGameFrame extends JFrame {
 
     private JButton[][] buttons;
@@ -200,8 +200,8 @@ public class BeadGameFrame extends JFrame {
     
     /**
     * Mező színének beállítása
+    * 
     */
-    
     public void setButton(int i, int j, boolean b) {
         buttons[i][j].setEnabled(b);
         if (b) {
@@ -216,11 +216,15 @@ public class BeadGameFrame extends JFrame {
         buttons[i][j].setIcon(image);
     }
 
+    /**
+    * Mező színének beállítása
+    * @param uzenet a a kiírni kívánt információ
+    */
     public void uzen(String uzenet) {
         int n = JOptionPane.showConfirmDialog(
                 null,
                 uzenet + "\n" + "Egy visszavágó?",
-                "A jÃ¡tÃ©k vÃ©get Ã©rt!",
+                "A játék véget ért!",
                 JOptionPane.YES_NO_OPTION);
         if (n == 0) {
             logic.reset();

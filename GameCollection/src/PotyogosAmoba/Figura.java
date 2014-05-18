@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 
 /**
 * A játékmezőben a játékost reprezentáló objektum
+* @author Zoltán
 */
 
 public class Figura {

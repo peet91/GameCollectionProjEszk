@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 
 /**
 * A játékos objektum
+* @author Zoltán
 */
 
 public class Player {

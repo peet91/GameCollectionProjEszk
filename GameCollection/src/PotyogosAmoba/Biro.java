@@ -6,13 +6,16 @@ import javax.swing.ImageIcon;
 
 /**
 * Ez az osztály felelős a játék állapotának kiértékeléséért
+* @author Zoltán
 */
 
 public class Biro {
 
     void win(int x, int y, ImageIcon[][] szinek, BeadGameFrame gui, int ROWS, Player aktPlayer) {
         boolean vege = false;
-        //VÃ­zszintes gyÅzelem vizsgÃ¡lat
+        /**
+        * Vízszintes győzelem vizsgálat
+        */   
         int k = 1;
         ImageIcon szin = null;
         for (int z = y - 3; z < y + 4 && !vege; ++z) {
@@ -35,8 +38,7 @@ public class Biro {
         
         /**
         * Függőleges győzelem vizsgálat
-        */
-        
+        */    
         szin = null;
         k = 1;
         for (int z = x - 3; z < x + 4 && !vege; ++z) {
@@ -57,7 +59,7 @@ public class Biro {
             }
         }
         /**
-        * Átlós győzelem vizsgálat
+        * Atlós győzelem vizsgálat
         */
         szin = null;
         k = 1;
@@ -79,7 +81,7 @@ public class Biro {
             }
         }
         /**
-        * Átlós győzelem vizsgálat
+        * Atlós győzelem vizsgálat
         */
         szin = null;
         k = 1;
