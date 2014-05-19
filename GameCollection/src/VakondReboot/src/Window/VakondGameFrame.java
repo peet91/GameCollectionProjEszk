@@ -40,14 +40,14 @@ public class VakondGameFrame extends JFrame{
 		new JLabel();
 		setVisible(true);
 		
-		// Átlátszó 16x16 kép.
+		// atlatszo 16x16 kep.
 		BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
 
-		// Új üres kurzor
+		// uj ures kurzor
 		Cursor blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(
 		    cursorImg, new Point(0, 0), "blank cursor");
 
-		// Ennek a framenak beállítjuk az egeret
+		// Ennek a framenak beallitjuk az egeret
 		getContentPane().setCursor(blankCursor);
 	}
 }

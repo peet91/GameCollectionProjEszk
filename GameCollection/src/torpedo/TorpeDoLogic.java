@@ -22,10 +22,10 @@ public class TorpeDoLogic extends JFrame {
     private MyShips ms;
     private EnemysShips es;
     private Coloring coloring;
-    // -1 = támadott de nem talált
-    // 0 = víz;
-    // 1 = hajó;
-    // 2 = felrobbant hajó;
+    // -1 = tamadott de nem talalt
+    // 0 = viz;
+    // 1 = hajo;
+    // 2 = felrobbant hajo;
     public static int[][] statusME;
     public static int[][] statusYOU;
     public static int c; // counter 
@@ -52,7 +52,7 @@ public class TorpeDoLogic extends JFrame {
         ms = new MyShips(COLS, ROWS, statusME, gui);
         es = new EnemysShips(COLS, ROWS, statusYOU, gui);
         coloring = new Coloring(COLS, ROWS, statusME, statusYOU, c, gui);
-    }//konstruktor vége
+    }//konstruktor vege
 
     /**
      * 
@@ -60,7 +60,7 @@ public class TorpeDoLogic extends JFrame {
      * 
      */
     public void buttonPressed(int i, int j) {
-//HAJÓIM LEPAKOLÁSA
+//HAJOIM LEPAKOLASA
 
         if (c < 2) {
             ms.placeNo2Ship(i, j);
@@ -88,13 +88,13 @@ public class TorpeDoLogic extends JFrame {
             enableYOU();
         }
 
-//ELLENFÉL HAJÓINAK LEPAKOLÁSA
+//ELLENFEL HAJOINAK LEPAKOLASA
         if (c == 0) {
             es.placeShips();
         }
 //CSATAAA
         if (c > 8) {
-            //te lősz
+            //te losz
             if (statusYOU[i][j] == 0) {
                 statusYOU[i][j] = -1;
                 // gui.setColorOfButtonYOU(i, j, Color.WHITE);
@@ -105,7 +105,7 @@ public class TorpeDoLogic extends JFrame {
                 System.out.println("Találat!");
             }
             gui.setButtonEnabledYOU(i, j, false);
-            //a gép lő
+            //a gep lo
             attack(c);
         }
 
@@ -122,7 +122,7 @@ public class TorpeDoLogic extends JFrame {
      * Engedélyezi a kattintásokat a felhasználó térfelén	
      * 
      */
-    public void enableME() {//bárhova rakhatsz 
+    public void enableME() {//barhova rakhatsz 
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
                 if (statusME[m][n] != 1) {
@@ -137,7 +137,7 @@ public class TorpeDoLogic extends JFrame {
      * Engedélyezi az ellenfél térfelére való kattintást
      * 
      */
-    public void enableYOU() {//bárhova rakhatsz 
+    public void enableYOU() {//barhova rakhatsz 
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
                 gui.setButtonEnabledYOU(m, n, true);
@@ -150,7 +150,7 @@ public class TorpeDoLogic extends JFrame {
      * Letiltja a felhasználó térfelére való kattintást
      * 
      */
-    public void disableME() {//sehiva nem rakhatsz 
+    public void disableME() {//sehova nem rakhatsz 
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
                 if (statusME[m][n] != 1) {
@@ -184,7 +184,7 @@ public class TorpeDoLogic extends JFrame {
 
     }
 
-//ELLENFÉL TÁMAD
+//ELLENFEL TAMAD
     
     /**
      * 
@@ -226,7 +226,7 @@ public class TorpeDoLogic extends JFrame {
      * Nyerés ellenőrzés a felhasználó oldaláról
      * 
      */
-    public void youWin() {// győzelem ellenőrzés
+    public void youWin() {// gyozelem ellenorzes
         boolean win = true;
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
@@ -248,7 +248,7 @@ public class TorpeDoLogic extends JFrame {
      * Nyerés ellenőrzés az ellenfél oldaláról
      * 
      */
-    public void youLost() {// vesztés ellenőrzés
+    public void youLost() {// vesztes ellenorzes
         boolean lost = true;
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
@@ -263,4 +263,4 @@ public class TorpeDoLogic extends JFrame {
         }
         // System.out.println(lost);
     }
-}//program vége
+}//program vege

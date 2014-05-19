@@ -2,6 +2,11 @@ package FourGame.Logic;
 
 import java.io.Serializable;
 
+/**
+ * A játéklogikát megvalósító osztály
+ * @author antalpeter
+ *
+ */
 
 public class FourGameLogic implements Serializable {
     private int blocks[][];
@@ -18,10 +23,21 @@ public class FourGameLogic implements Serializable {
         playerTwoBlocks = new boolean[_size][_size];  
     }
     
+    /**
+     * Lekérdezi az adott blokkot
+     * @param x
+     * @param y
+     * @return
+     */
      public int getBlock(int x, int y) {
         return blocks[x][y];
     }
-    
+     
+    /**
+     * Az egyes blokkok "növeléséért" felelős  függvény
+     * @param x
+     * @param y
+     */
     public void setBlock(int x, int y) {
         setSize(x, y);
         
@@ -35,6 +51,11 @@ public class FourGameLogic implements Serializable {
         }
     }
     
+    /**
+     * A pálya méretét beállító függvény
+     * @param x
+     * @param y
+     */
     public void setSize(int x, int y) {
         if (x >= 0 && y >= 0 && x < this.size && y < this.size) {
             if (blocks[x][y] < 4) {
@@ -55,7 +76,10 @@ public class FourGameLogic implements Serializable {
     public int getSize() {
         return this.size;
     }
-    
+    /**
+     * Az 1-es játékos pontszámát lekérdező függvény
+     * @return
+     */
     public int getPlayerOneScore() {
         this.p1score = 0;
         for (int i = 0; i < this.size; i++) {
@@ -67,6 +91,10 @@ public class FourGameLogic implements Serializable {
         }
         return p1score;
     }
+    /**
+     * A 2-es játékos pontszámát lekérdező függvény
+     * @return
+     */
     public int getPlayerTwoScore() {
         this.p2score = 0;
         for (int i = 0; i < this.size; i++) {
@@ -78,15 +106,28 @@ public class FourGameLogic implements Serializable {
         }
         return p2score;
     }
-    
+    /**
+     * Az 1-es játékos által megszerzett blokkokat lekérdező függvény
+     * @param i
+     * @param j
+     * @return
+     */
     public boolean getPlayerOneBlock(int i, int j) {
         return playerOneBlocks[i][j];
     }
-    
+    /**
+     * A 2-es játékos által megszerzett blokkokat lekérdező függvény
+     * @param i
+     * @param j
+     * @return
+     */
     public boolean getPlayerTwoBlock(int i, int j) {
         return playerTwoBlocks[i][j];
     }
-    
+    /**
+     * Vizsgálja hogy végetért-e a játék
+     * @return
+     */
     public boolean isGameEnded() {
         for (int i = 0; i < this.size; i++) {
             for (int j = 0; j < this.size; j++) {
@@ -97,6 +138,10 @@ public class FourGameLogic implements Serializable {
         }
         return true;
     }
+    /**
+     * Lekérdezi az aktív játékos
+     * @return
+     */
     public String getActivePlayer() {
         if (p1active == true) {
             return "p1";
@@ -105,6 +150,9 @@ public class FourGameLogic implements Serializable {
             return "p2";
         }
     }
+    /**
+     * Váltogatja az aktív játékost
+     */
     public void setActivePlayer() {
         if (p1active == true) {
             p1active = false;

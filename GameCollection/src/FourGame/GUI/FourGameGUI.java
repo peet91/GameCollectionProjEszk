@@ -21,6 +21,11 @@ import javax.swing.JPanel;
 
 import FourGame.Logic.FourGameLogic;
 
+/**
+ * A grafikus réteget megvalósító osztály
+ * @author antalpeter
+ *
+ */
 public class FourGameGUI extends JFrame {
     private JPanel form;
     private JPanel scoreBoard;
@@ -58,6 +63,9 @@ public class FourGameGUI extends JFrame {
         
         pack();
     }
+    /**
+     * Új játék gombra kattintás listenerje
+     */
     private Action newGameAction = new AbstractAction("New game") {
 
         @Override
@@ -82,6 +90,9 @@ public class FourGameGUI extends JFrame {
             }
         }
     };
+    /**
+     * Mentés gomb listener-je
+     */
     private Action saveGameAction = new AbstractAction("Save game") 
      {
 
@@ -120,6 +131,10 @@ public class FourGameGUI extends JFrame {
 	    }
 	}
     };
+    
+    /**
+     * loadgame gomb listener-je
+     */
     private Action loadGameAction = new AbstractAction("Load game") 
      {
 
@@ -149,7 +164,9 @@ public class FourGameGUI extends JFrame {
 	    }
 	}
     };
-    
+    /**
+     * blokkra kattintás listenerje
+     */
     private Action gameButtonAction = new AbstractAction() {
 
         @Override
@@ -173,19 +190,27 @@ public class FourGameGUI extends JFrame {
         paintButtons();    
         }
     };
-    
+    /**
+     * Új játék létrehozását végző függvény
+     * @param _size
+     */
     private void newGame(int _size) {
         buttons = new JButton[_size][_size];
 	fourGameLogic = new FourGameLogic(_size);
         addButtons();
     }
-    
+    /**
+     * Az eredménytábla frissítéséért felelős függvény
+     */
     private void updateScoreBoard(){
         scoreBoardArray[0].setText("p1 score: " + fourGameLogic.getPlayerOneScore());
         scoreBoardArray[1].setText("p2 score: " + fourGameLogic.getPlayerTwoScore());
         scoreBoardArray[2].setText("active_player: " + fourGameLogic.getActivePlayer());     
     }
     
+    /**
+     * A blokkokat a játéktérre felpakoló függvény
+     */
     private void addButtons() {
         int size = fourGameLogic.getSize();
         form.removeAll();
@@ -218,6 +243,9 @@ public class FourGameGUI extends JFrame {
         pack();
     }
     
+    /**
+     * A megszerzett blokkok színezését végző függvény
+     */
     private void paintButtons() {
     int size = fourGameLogic.getSize();
 	

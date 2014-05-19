@@ -69,7 +69,7 @@ public class EnemysShips extends JFrame{
 
     }
     
-    //HÁRMAS
+    //HARMAS
 /**
  * Ellenfék 3as hajójának elhelyezése az ellenfél térfelén
  */

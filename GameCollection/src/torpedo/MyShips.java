@@ -28,7 +28,7 @@ public class MyShips extends JFrame{
     }
     
     
-    //KETTES HAJÓ   
+    //KETTES HAJO   
     /**
      * Ez a függvény felelős az ellenőrzések elvégzéséért, hogy hova kerülhet a felhasználó 2 elemű hajója
      */
@@ -36,14 +36,14 @@ public class MyShips extends JFrame{
         statusME[i][j] = 1;
         //gui.setColorOfButtonME(i, j, Color.LIGHT_GRAY); //lereak egy részletet
 
-        //tisztítás
+        //tisztitas
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
                 gui.setButtonEnabledME(m, n, false);
             }
         }
 
-        //ide rakhatsz hajót
+        //ide rakhatsz hajot
         if (i + 1 < COLS) {
             gui.setButtonEnabledME(i + 1, j, true);
         }
@@ -57,7 +57,7 @@ public class MyShips extends JFrame{
             gui.setButtonEnabledME(i, j - 1, true);
         }
 
-        //ahova már raktál oda nem rakhatsz
+        //ahova mar raktal oda nem rakhatsz
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
                 if (statusME[m][n] == 1) {
@@ -65,26 +65,26 @@ public class MyShips extends JFrame{
                 }
             }
         }
-    }//kettes vége
+    }//kettes vege
     
     
-    //HÁRMAS HAJÓ
+    //HARMAS HAJO
     /**
      * 
      * Ez a függvény felelős az ellenőrzések elvégzéséért, hogy hova kerülhet a felhasználó 3 elemű hajója
      */
     public void placeNo3Ship(int i, int j, int c) {
-        statusME[i][j] = 1;//lereak egy részletet
+        statusME[i][j] = 1;//lereak egy reszletet
         // gui.setColorOfButtonME(i, j, Color.GRAY); 
 
-        //tisztítás
+        //tisztitas
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
                 gui.setButtonEnabledME(m, n, false);
             }
         }
 
-        //hajó első darabja
+        //hajo elso darabja
         if (c == 2){
             if (i + 1 < COLS) {
                 gui.setButtonEnabledME(i + 1, j, true);
@@ -135,7 +135,7 @@ public class MyShips extends JFrame{
 
         }
 
-        //ahova már raktál oda nem rakhatsz
+        //ahova mar raktal oda nem rakhatsz
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
                 if (statusME[m][n] == 1) {
@@ -143,9 +143,9 @@ public class MyShips extends JFrame{
                 }
             }
         }
-    }//hármas vége
+    }//harmas vege
     
-    //NÉGYES HAJÓ
+    //NEGYES HAJO
     /**
      * 
      * Ez a függvény felelős az ellenőrzések elvégzéséért, hogy hova kerülhet a felhasználó 4 elemű hajója
@@ -155,14 +155,14 @@ public class MyShips extends JFrame{
         statusME[i][j] = 1;
         //   gui.setColorOfButtonME(i, j, Color.DARK_GRAY); //lreak egy részletet
 
-        //tisztítás
+        //tisztitas
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
                 gui.setButtonEnabledME(m, n, false);
             }
         }
 
-        //hajó első darabja
+        //hajo elso darabja
         if (c == 5) {
             if (i + 1 < COLS) {
                 gui.setButtonEnabledME(i + 1, j, true);
@@ -177,7 +177,7 @@ public class MyShips extends JFrame{
                 gui.setButtonEnabledME(i, j - 1, true);
             }
         } else if (c == 6) {
-            //hajó többi darabja   
+            //hajo tobbi darabja   
 
             if (i - 1 >= 0 && statusME[i - 1][j] == 1 && i + 1 < ROWS) {//ha felette van az előző
                 gui.setButtonEnabledME(i + 1, j, true);
@@ -210,7 +210,7 @@ public class MyShips extends JFrame{
                 gui.setButtonEnabledME(i, j - 1, true);
             }
         } else if (c > 6) {
-            //hajó utolsó darabja    
+            //hajo utolso darabja    
 
             if (i - 1 >= 0 && statusME[i - 1][j] == 1 && i + 1 < ROWS) {//ha felette van az előző
                 gui.setButtonEnabledME(i + 1, j, true);
@@ -246,7 +246,7 @@ public class MyShips extends JFrame{
 
         }
 
-        //ahova már raktál oda nem rakhatsz
+        //ahova mar raktal oda nem rakhatsz
         for (int m = 0; m < ROWS; ++m) {
             for (int n = 0; n < COLS; ++n) {
                 if (statusME[m][n] == 1) {
@@ -254,5 +254,5 @@ public class MyShips extends JFrame{
                 }
             }
         }
-    }//négyes hajó vége
+    }//negyes hajo vege
 }

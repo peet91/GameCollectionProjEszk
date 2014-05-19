@@ -41,10 +41,10 @@ public class TorpeDoFrame extends JFrame {
     public TorpeDoFrame() {
         setTitle("TorpeDo");
         setLocationRelativeTo(null);
-        setSize(new Dimension(610, 350)); //width, hight
+        setSize(new Dimension(610, 350)); //width, height
         setResizable(false);
 
-        //Menü
+        //Menu
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
 
@@ -87,7 +87,7 @@ public class TorpeDoFrame extends JFrame {
 
 
 
-        //Ablak + háttér
+        //Ablak + hatter
         JPanel topPanel = new JPanel();
         topPanel.setBackground(Color.CYAN);
         topPanel.setLayout(new BorderLayout(2, 2));
@@ -110,7 +110,7 @@ public class TorpeDoFrame extends JFrame {
 
 
 //gombok
-        //játékos térfele
+        //jatekos terfele
         JPanel buttonPanelMe = new JPanel();
 
         buttonPanelMe.setLayout(new GridLayout(8, 8, 2, 2));
@@ -137,7 +137,7 @@ public class TorpeDoFrame extends JFrame {
         logic = new TorpeDoLogic(this);
         topPanel.add(buttonPanelMe, BorderLayout.WEST);
 
-        //ellenfér térfele
+        //ellenfel terfele
         JPanel buttonPanelEnemy = new JPanel();
 
         buttonPanelEnemy.setLayout(new GridLayout(8, 8, 2, 2));
@@ -167,7 +167,7 @@ public class TorpeDoFrame extends JFrame {
         coloring = new Coloring(logic.COLS, logic.ROWS, logic.statusME, logic.statusYOU, logic.c, this);
         topPanel.add(buttonPanelEnemy, BorderLayout.EAST);
 
-    }//konstruktor vége
+    }//konstruktor vege
 
 // Actions
     //exit
@@ -312,7 +312,7 @@ public class TorpeDoFrame extends JFrame {
         }
     }
 
-//függvények
+//fuggvenyek
     /**
      * 
  	 *beállítja a felhasználó gombjainak a színét
@@ -346,4 +346,4 @@ public class TorpeDoFrame extends JFrame {
     public void setButtonEnabledYOU(int i, int j, boolean b) {
         buttonsYOU[i][j].setEnabled(b);
     }
-}//program vége
+}//program vege
